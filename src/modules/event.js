@@ -24,20 +24,25 @@ async function stockSearchData() {
 
     var data = await Api.fetchStockSearch(searchBar.value.toUpperCase());
     data = data["results"];
+    var filteredData = [];
     var tickers = [];
+    var names = [];
 
     data.forEach(element => {
         tickers.push(element["ticker"]);
+        names.push(element['name']);
     });
 
-    return(tickers);
+    filteredData.push(tickers);
+    filteredData.push(names);
+    return(filteredData);
 }
 
 async function stockSearchEvent() {
-    const tickers = await stockSearchData();
+    const filteredData = await stockSearchData();
     const Ui = await loadUi();
     
-    Ui.autocomplete(document.getElementById("txtStock"), tickers);
+    Ui.autocomplete(document.getElementById("txtStock"), filteredData[0], filteredData[1]);
 }
 
 export const debouncedSearchEvent = debounce(stockSearchEvent, 400);
