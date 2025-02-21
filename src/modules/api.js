@@ -45,7 +45,7 @@ export async function fetchAiStocks() {
 export async function fetchGainersLosers(direction) {
     try {
         //Fetch data from API
-        const response = await fetch(`../../api/fetch-gainers.js?direction=${direction}`);
+        const response = await fetch(`../../api/fetch-gainer-loser.js?direction=${direction}`);
         
         //If response is not ok, throw error
         if (response.status == 500) {
