@@ -4,23 +4,20 @@ Written:   02-07-2025
 Revised:   02-08-2025
 */
 
-
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
   //Setting const/var for weather data to use in query 
 
   const TEMP_KEY = process.env.AI_KEY; // Securely stored on Vercel
   //Object of AI request body
   const requestBody = {
-    model: "gpt-4", //AI model
-    //Message to give to model
+    model: "gpt-4",
     messages: [{ 
-      role: "user", //Role of who/what is providing the message
-      //Message content
-      content: `Provide 10 of todays hottest stocks. Respond with only the values and in JSON format of [{"ticker":"TCKR"}]` 
-    }]
+      role: "user",
+      content: `Provide 10 of today's hottest stocks. Respond with only the values and in JSON format of [{"ticker":"TCKR"}]` 
+    }],
+    temperature: 0.7 // Ensures stable responses
   };
+  
 
   try {
     //Fetch data from API using POST
@@ -42,7 +39,8 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     //Return response in res
-    res.status(200).json(data.choices[0].message.content);
+    res.status(200).json({ result: data.choices[0].message.content });
+
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch data' });
   }
