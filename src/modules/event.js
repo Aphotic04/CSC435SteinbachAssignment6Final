@@ -1,10 +1,10 @@
 async function loadApi() {
-    const Api = await import("./modules/ui.js");
+    const Api = await import("./api.js");
     return Api;
 }
 
 async function loadUi() {
-    const Ui = await import("./modules/ui.js");
+    const Ui = await import("./ui.js");
     return Ui;
 }
 
