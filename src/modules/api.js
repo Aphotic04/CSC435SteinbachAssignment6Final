@@ -4,7 +4,7 @@ export async function fetchStockSearch(ticker) {
         const response = await fetch(`/api/fetch-stock-search?ticker=${ticker}`);
         
         //If response is not ok, throw error
-        if (!response.ok) {
+        if (response.status == 500) {
             throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
         }
 
@@ -17,6 +17,5 @@ export async function fetchStockSearch(ticker) {
     } catch (error) { //Catch thrown error
         //Log and display error
         console.error("Error fetching data:", error);
-        displayError(error);
     }
 }
