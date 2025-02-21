@@ -22,7 +22,7 @@ async function stockSearchEvent() {
     const searchBar = document.getElementById('txtStock');
     const Api = await loadApi();
 
-    const data = await Api.fetchStockSearch(searchBar.value);
+    var data = await Api.fetchStockSearch(searchBar.value);
     data = data["results"];
     var tickers = [];
 
