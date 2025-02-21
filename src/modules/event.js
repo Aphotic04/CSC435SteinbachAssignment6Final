@@ -35,4 +35,4 @@ async function stockSearchEvent() {
     Ui.autocomplete(document.getElementById("txtStock"), tickers);
 }
 
-export const debouncedSearchEvent = debounce(await stockSearchEvent, 400);
+export const debouncedSearchEvent = debounce(stockSearchEvent, 400);
