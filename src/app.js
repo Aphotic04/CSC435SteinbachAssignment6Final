@@ -9,7 +9,7 @@ async function loadApi() {
 }
 
 async function loadUi() {
-    const Ui = await import("./modules/api.js");
+    const Ui = await import("./modules/ui.js");
     return Ui;
 }
 
