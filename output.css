@@ -587,9 +587,6 @@
   .isolation-auto {
     isolation: auto;
   }
-  .z-50 {
-    z-index: 50;
-  }
   .z-auto {
     z-index: auto;
   }
@@ -695,15 +692,6 @@
       max-width: 96rem !important;
     }
   }
-  .mx-5 {
-    margin-inline: calc(var(--spacing) * 5);
-  }
-  .mx-auto {
-    margin-inline: auto;
-  }
-  .my-auto {
-    margin-block: auto;
-  }
   .box-border {
     box-sizing: border-box;
   }
@@ -791,9 +779,6 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
-  .h-3 {
-    height: calc(var(--spacing) * 3);
-  }
   .h-3\/3 {
     height: calc(3/3 * 100%);
   }
@@ -809,14 +794,8 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
-  }
-  .w-full {
-    width: 100%;
   }
   .w-screen {
     width: 100vw;
@@ -957,9 +936,6 @@
   }
   .animate-none {
     animation: none;
-  }
-  .cursor-pointer {
-    cursor: pointer;
   }
   .touch-pinch-zoom {
     --tw-pinch-zoom: pinch-zoom;
@@ -1392,10 +1368,6 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
   }
-  .border-t-0 {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 0px;
-  }
   .border-r {
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
@@ -1432,12 +1404,6 @@
     --tw-border-style: solid;
     border-style: solid;
   }
-  .border-gray-300 {
-    border-color: var(--color-gray-300);
-  }
-  .border-transparent {
-    border-color: transparent;
-  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1453,12 +1419,6 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
-  .bg-blue-500 {
-    background-color: var(--color-blue-500);
-  }
-  .bg-gray-200 {
-    background-color: var(--color-gray-200);
-  }
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
@@ -1467,9 +1427,6 @@
   }
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
-  }
-  .bg-white {
-    background-color: var(--color-white);
   }
   .-bg-conic {
     --tw-gradient-position: in oklab;
@@ -1640,9 +1597,6 @@
   .p-1 {
     padding: calc(var(--spacing) * 1);
   }
-  .p-2 {
-    padding: calc(var(--spacing) * 2);
-  }
   .text-center {
     text-align: center;
   }
@@ -1684,13 +1638,6 @@
   }
   .align-top {
     vertical-align: top;
-  }
-  .font-sans {
-    font-family: var(--font-sans);
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
   }
   .leading-none {
     --tw-leading: 1;
@@ -1768,9 +1715,6 @@
   }
   .\[color\:red\]\/50\! {
     color: color-mix(in oklab, red 50%, transparent) !important;
-  }
-  .text-white {
-    color: var(--color-white);
   }
   .capitalize {
     text-transform: capitalize;
@@ -2269,6 +2213,12 @@ input[type=submit] {
 .autocomplete-active {
   background-color: var(--color-blue-500);
   color: var(--color-white);
+}
+.gainers {
+  color: var(--color-green-600);
+}
+.losers {
+  color: var(--color-red-600);
 }
 @keyframes spin {
   to {

@@ -34,9 +34,9 @@ input[type=submit] {
 }
 
 .gainers {
-    @apply text-green;
+    @apply text-green-600;
 }
 
 .losers {
-    @apply text-red;
+    @apply text-red-600;
 }
