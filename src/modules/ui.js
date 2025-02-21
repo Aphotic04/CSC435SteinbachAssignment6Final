@@ -4,7 +4,7 @@ export function autocomplete(inp, arr) {
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
 
-    var a, b, i, val = inp.value.toUpperCase;
+    var a, b, i, val = inp.value.toUpperCase();
     /*close any already open lists of autocompleted values*/
     closeAllLists();
     if (!val) { return false;}
