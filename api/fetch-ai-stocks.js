@@ -5,6 +5,8 @@ Revised:   02-08-2025
 */
 
 
+import fetch from 'node-fetch';
+
 export default async function handler(req, res) {
   //Setting const/var for weather data to use in query 
 
