@@ -8,9 +8,32 @@ async function loadApi() {
     return Api;
 }
 
+async function loadUi() {
+    const Ui = await import("./modules/api.js");
+    return Ui;
+}
+
+async function handleGainerLoser() {
+    const Api = await loadApi();
+
+    var gainerData = await Api.fetchGainersLosers('gainers');
+    var loserData = await Api.fetchGainersLosers('losers');
+
+    gainerData = gainerData['tickers'];
+    loserData = loserData['tickers'];
+
+    const Ui = await loadUi();
+
+    Ui.displayGainersLosers(gainerData, "gainers");
+    Ui.displayGainersLosers(loserData, "losers");
+}
+
+
+
+
+await handleGainerLoser();
+
+
 const Events = await loadEvent();
 
-const Api = await loadApi();
-
-Api.fetchAiStocks();
 document.getElementById('txtStock').addEventListener('input', Events.debouncedSearchEvent);

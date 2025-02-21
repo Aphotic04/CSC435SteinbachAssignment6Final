@@ -1,3 +1,25 @@
+export function displayGainersLosers(data, direction) {
+    const container = document.getElementById(direction);
+
+    for (var i = 0; i < 20; i++) {
+        const newContainer = document.createElement('li');
+        const curr = data[i];
+
+        newContainer.innerHTML = `
+            <p>
+                <span class='${direction}'>⮝</span>
+                ${curr['ticker']}
+                <span class='${direction}'>${curr['todaysChangePerc']}%</span>
+            </p>
+            <p>
+                <span class='${direction}'>$${curr['todaysChange']}%</span>
+                $${curr['day']['c']}
+            </p>
+        `;
+        container.appendChild(newContainer);
+    }
+}
+
 export function autocomplete(inp, arr, arr1) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
