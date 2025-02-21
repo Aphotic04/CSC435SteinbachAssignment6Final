@@ -10,7 +10,7 @@ import fetch from 'node-fetch';
 export default async function handler(req, res) {
   //Setting const/var for weather data to use in query 
 
-  const API_KEY = process.env.AI_KEY; // Securely stored on Vercel
+  const TEMP_KEY = process.env.AI_KEY; // Securely stored on Vercel
   //Object of AI request body
   const requestBody = {
     model: "gpt-4", //AI model
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${API_KEY}`,
+        "Authorization": `Bearer ${TEMP_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(requestBody)
