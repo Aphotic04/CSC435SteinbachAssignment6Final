@@ -10,7 +10,7 @@ export async function fetchStockSearch(ticker) {
 
         //Put data in constant after parsing
         const data = await response.json();
-
+        console.log(data);
         //Return data
         return(data);
 
