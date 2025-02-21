@@ -9,11 +9,11 @@ export function displayGainersLosers(data, direction) {
             <p>
                 <span class='${direction}'>⮝</span>
                 ${curr['ticker']}
-                <span class='${direction}'>${curr['todaysChangePerc']}%</span>
+                <span class='${direction}'>${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
             </p>
             <p>
-                <span class='${direction}'>$${curr['todaysChange']}%</span>
-                $${curr['day']['c']}
+                <span class='${direction}'>$${parseFloat(curr['todaysChange']).toFixed(3)}%</span>
+                $${parseFloat(curr['day']['c']).toFixed(3)}
             </p>
         `;
         container.appendChild(newContainer);
