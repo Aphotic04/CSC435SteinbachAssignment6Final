@@ -6,6 +6,12 @@ export default async function handler(req, res) {
     const ticker = req.query.ticker || 'A';
 
     const response = await fetch(`https://api.polygon.io/v3/reference/tickers?ticker.gte=${ticker}&active=true&limit=5&apiKey=${apiKey}`);
+
+    //If response is not ok, throw error
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
     const data = await response.json();
     res.status(200).json(data);
   } catch (error) {
