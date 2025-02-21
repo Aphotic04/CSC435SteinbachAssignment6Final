@@ -1,7 +1,7 @@
 export async function fetchStockSearch(ticker) {
     try {
         //Fetch data from API
-        const response = await fetch(`/api/fetch-stock-search?ticker=${ticker}`);
+        const response = await fetch(`./api/fetch-stock-search?ticker=${ticker}`);
         
         //If response is not ok, throw error
         if (response.status == 500) {
