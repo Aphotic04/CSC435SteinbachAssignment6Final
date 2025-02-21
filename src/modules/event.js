@@ -18,7 +18,7 @@ function debounce(func, delay) {
     };
 }
 
-async function stockSearchEvent() {
+async function stockSearchData() {
     const searchBar = document.getElementById('txtStock');
     const Api = await loadApi();
 
@@ -30,8 +30,13 @@ async function stockSearchEvent() {
         tickers.push(element["ticker"]);
     });
 
-    const Ui = await loadUi();
+    return(tickers);
+}
 
+async function stockSearchEvent() {
+    const tickers = await stockSearchData();
+    const Ui = await loadUi();
+    
     Ui.autocomplete(document.getElementById("txtStock"), tickers);
 }
 
