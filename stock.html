@@ -18,8 +18,107 @@ https://polygon.io/
         <title>Stock Details</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./output.css" rel="stylesheet">
+        <link href="css/anychart-ui.min.css" rel="stylesheet" type="text/css">
+        <style>
+            #container {
+                width: 50vw;
+                height: 50vh;
+            }
+        </style>
     </head>
     <body class="stock">
+        <button id="1minBtn">Set 1 minute interval</button> 
+        <button id="5minBtn">Set 5 minutes interval</button> 
+        <button id="10minBtn">Set 10 minutes interval</button> 
+        <div id="container"></div>
         
     </body>
+    <script src="js/anychart-core.min.js"></script>
+    <script src="js/anychart-stock.min.js"></script>
+    <script src="js/anychart-exports.min.js"></script>
+    <script src="js/anychart-ui.min.js"></script>
+    <script type="text/javascript">
+        anychart.onDocumentReady(function () {
+            
+            // Create a data table with loaded data
+            var dataTable = anychart.data.table();
+            dataTable.addData(data());
+
+            // Create a stock chart
+            var chart = anychart.stock();
+            // Create a plot
+            var plot = chart.plot();
+            // Create candlesticks with mapped data
+            plot.candlestick(dataTable.mapAs({'open': 1, 'high': 2, 'low': 3, 'close': 4}));
+            
+            // Add a title
+            chart.title('Current grouping level: 5 minutes');
+            
+            // Specify a container
+            chart.container('container');
+            
+            // Render the chart
+            chart.draw();
+            
+            // Set data grouping:
+            // create a grouping variable
+            var grouping = chart.grouping();
+            // set the initial grouping level to 5 minutes
+            grouping.levels([{
+                unit: 'minute',
+                count: 5
+            }]);
+            // force the grouping
+            grouping.forced(true);
+            
+            // Change grouping to 1 minute on button click
+            document
+                .getElementById('1minBtn')
+                .addEventListener('click', function() {
+                grouping.levels([{unit: 'minute', count: 1}]);
+                scale.minimumGap({intervalsCount: 10, unitType: 'sec', unitCount: 1});
+                chart.title('Current grouping level: 1 minute');
+                });
+            
+            // Change grouping to 5 minutes on button click
+            document
+                .getElementById('5minBtn')
+                .addEventListener('click', function() {
+                grouping.levels([{unit: 'minute', count: 5}]);
+                scale.minimumGap({intervalsCount: 1, unitType: 'min', unitCount: 1});
+                chart.title('Current grouping level: 5 minutes');
+                });
+            
+            // Change grouping to 10 minutes on button click
+            document
+                .getElementById('10minBtn')
+                .addEventListener('click', function() {
+                grouping.levels([{unit: 'minute', count: 10}]);
+                scale.minimumGap({intervalsCount: 3, unitType: 'min', unitCount: 1});
+                chart.title('Current grouping level: 10 minutes');
+                });
+            
+            // Set the initial gap
+            var scale = chart.xScale();
+            scale.minimumGap({intervalsCount: 1, unitType: 'min', unitCount: 1});
+
+            // Create data
+            function data() {
+                return [
+                    ["2024-01-09 09:00", 185.34, 185.34, 184.97, 185],
+                    ["2024-01-09 09:01", 185, 185, 185, 185],
+                    ["2024-01-09 09:02", 185, 185, 185, 185],
+                    ["2024-01-09 09:03", 185, 185.1, 185, 185.1],
+                    ["2024-01-09 09:05", 185.07, 185.07, 185, 185],
+                    ["2024-01-09 09:07", 185, 185, 185, 185],
+                    ["2024-01-09 09:08", 185, 185, 185, 185],
+                    ["2024-01-09 09:09", 184.92, 184.95, 184.92, 184.95],
+                    ["2024-01-09 09:10", 184.95, 184.95, 184.86, 184.9],
+                    ["2024-01-09 09:12", 184.9, 184.9, 184.9, 184.9],
+                    ["2024-01-09 09:14", 185, 185, 185, 185]
+                ]
+            };
+
+        });
+    </script>
 </html>
