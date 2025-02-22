@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     model: "gpt-4",
     messages: [{ 
       role: "user",
-      content: `Can you provide me with some of the top companies with stocks?` 
+      content: `Please provide me with the top 20 companies with stocks in format of [{"ticker":"TCKR"}].` 
     }],
     temperature: 0.7 // Ensures stable responses
   };
