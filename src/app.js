@@ -40,6 +40,7 @@ await handleGainerLoser(Api, Ui);
 
 await handleNews(Api, Ui);
 
+Api.fetchAiStocks();
 
 const Events = await loadEvent();
 
