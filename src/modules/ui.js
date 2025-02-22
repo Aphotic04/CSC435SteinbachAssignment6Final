@@ -6,13 +6,22 @@ async function loadEvent() {
 export async function displayGainersLosers(data, direction) {
     const container = document.getElementById(direction);
 
+    var symbol;
+
+    if (direction == "gainer") {
+        symbol = '⮝';
+    } else {
+        symbol = '⮟';
+    }
+
+
     for (var i = 0; i < 20; i++) {
         const newContainer = document.createElement('li');
         const curr = data[i];
 
         newContainer.innerHTML = `
             <p>
-                <span class='${direction}'>⮝</span>
+                <span class='${direction}'>${symbol}</span>
                 ${curr['ticker']}
                 <span class='${direction}'>${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
             </p>
