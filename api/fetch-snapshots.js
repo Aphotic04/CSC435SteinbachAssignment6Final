@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     // Get the ticker from query parameters, defaulting to 'A' if not provided
     const tickers = req.query.tickers;
 
-    const response = await fetch(`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${tickers}?apiKey=${apiKey}`);
+    const response = await fetch(`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?tickers=${tickers}&apiKey=${apiKey}`);
 
     //If response is not ok, throw error
     if (!response.ok) {
