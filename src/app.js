@@ -1,4 +1,3 @@
-
 async function loadEvent() {
     const Events = await import("./modules/event.js");
     return Events;
@@ -16,9 +15,6 @@ async function loadUi() {
 
 const Api = await loadApi();
 const Ui = await loadUi();
-
-var scrollData = await Api.fetchAiStocks();
-
 
 async function handleGainerLoser(Api, Ui) {
     var gainerData = await Api.fetchGainersLosers('gainers');
@@ -39,7 +35,8 @@ async function handleNews(Api, Ui) {
     await Ui.displayNews(newsData);
 }
 
-async function handleScrollBar(Api, Ui, scrollData) {
+async function handleScrollBar(Api, Ui) {
+    var scrollData = await Api.fetchAiStocks();
 
     scrollData = JSON.parse(scrollData['result']);
 
@@ -63,7 +60,7 @@ await handleGainerLoser(Api, Ui);
 
 await handleNews(Api, Ui);
 
-await handleScrollBar(Api, Ui, scrollData);
+await handleScrollBar(Api, Ui);
 
 const Events = await loadEvent();
 

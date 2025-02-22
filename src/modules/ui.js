@@ -46,7 +46,6 @@ export async function displaySnapshots(data) {
     for (var i = 0; i < data.length; i++) {
         const newContainer = document.createElement('div');
         const curr = data[i];
-        console.log(curr);
         const percent = parseFloat(curr['todaysChangePerc'].toFixed(3));
 
         newContainer.classList.add('scrollElement');
@@ -68,6 +67,7 @@ export async function displaySnapshots(data) {
             <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
             $${parseFloat(curr['day']['c']).toFixed(3)}
         `;
+        container.innerHTML = '';
         container.appendChild(newContainer);
     }
 }
