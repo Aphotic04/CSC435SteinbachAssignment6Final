@@ -1,4 +1,3 @@
-var scrollData = await Api.fetchAiStocks();
 
 async function loadEvent() {
     const Events = await import("./modules/event.js");
@@ -17,6 +16,9 @@ async function loadUi() {
 
 const Api = await loadApi();
 const Ui = await loadUi();
+
+var scrollData = await Api.fetchAiStocks();
+
 
 async function handleGainerLoser(Api, Ui) {
     var gainerData = await Api.fetchGainersLosers('gainers');
