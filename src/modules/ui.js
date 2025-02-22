@@ -8,7 +8,7 @@ export async function displayGainersLosers(data, direction) {
 
     var symbol;
 
-    if (direction == "gainer") {
+    if (direction == "gainers") {
         symbol = '⮝';
     } else {
         symbol = '⮟';
