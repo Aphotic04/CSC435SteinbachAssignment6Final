@@ -66,3 +66,7 @@ header {
 #scroll {
     @apply animate-scroll whitespace-nowrap;
 }
+
+.scrollElement {
+    @apply inline;
+}

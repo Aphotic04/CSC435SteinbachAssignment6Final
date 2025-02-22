@@ -7,11 +7,14 @@ export async function displayGainersLosers(data, direction) {
     const container = document.getElementById(direction);
 
     var symbol;
+    var operator;
 
     if (direction == "gainers") {
         symbol = '⮝';
+        operator = '+';
     } else {
         symbol = '⮟';
+        operator = '-';
     }
 
 
@@ -23,10 +26,10 @@ export async function displayGainersLosers(data, direction) {
             <p>
                 <span class='${direction}'>${symbol}</span>
                 ${curr['ticker']}
-                <span class='${direction}'>${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
+                <span class='${direction}'>${operator}${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
             </p>
             <p>
-                <span class='${direction}'>$${parseFloat(curr['todaysChange']).toFixed(3)}%</span>
+                <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
                 $${parseFloat(curr['day']['c']).toFixed(3)}
             </p>
         `;
@@ -36,6 +39,36 @@ export async function displayGainersLosers(data, direction) {
 
 export async function displaySnapshots(data) {
     const container = document.getElementById('scroll');
+
+    var symbol;
+    var direction;
+    var operator;
+    for (var i = 0; i < data.length; i++) {
+        const newContainer = document.createElement('div');
+        const curr = data[i];
+        const percent = parseFloat(curr['todaysChangePerc'].toFixed(3));
+
+        newContainer.classList.add('scrollElement');
+
+        if (percent >= 0) {
+            direction = "gainers";
+            symbol = '⮝';
+            operator = '+';
+        } else {
+            direction = "losers";
+            symbol = '⮟';
+            operator = '-';
+        }
+
+        newContainer.innerHTML = `
+            <span class=${direction}>${symbol}</span>
+            ${curr['ticker']}
+            <span class=${direction}>${operator}${percent}%</span>
+            <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
+            $${parseFloat(curr['day']['c']).toFixed(3)}
+        `;
+        container.appendChild(newContainer);
+    }
 }
 
 export async function displayNews(data) {

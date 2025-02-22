@@ -2245,6 +2245,9 @@ header {
   animation: var(--animate-scroll);
   white-space: nowrap;
 }
+.scrollElement {
+  display: inline;
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
