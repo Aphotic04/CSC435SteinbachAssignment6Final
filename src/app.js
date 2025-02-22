@@ -28,10 +28,10 @@ async function handleGainerLoser(Api, Ui) {
 }
 
 async function handleNews(Api, Ui) {
-    var newsData = Api.fetchNews();
+    var newsData = await Api.fetchNews();
 
     newsData = newsData['results'];
-
+    
     await Ui.displayNews(newsData);
 }
 

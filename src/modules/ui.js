@@ -28,7 +28,6 @@ export async function displayGainersLosers(data, direction) {
 export async function displayNews(data) {
     const container = document.getElementById('news');
     const Event = await loadEvent();
-    console.log(data);
     for (var i = 0; i < 10; i++) {
         const newContainer = document.createElement('div');
         const curr = data[i];
