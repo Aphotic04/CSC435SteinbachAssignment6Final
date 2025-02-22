@@ -1,5 +1,5 @@
 async function loadEvent() {
-    const Events = await import("./modules/event.js");
+    const Events = await import("./event.js");
     return Events;
 }
 
