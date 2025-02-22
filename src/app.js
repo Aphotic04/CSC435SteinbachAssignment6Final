@@ -50,7 +50,8 @@ async function handleScrollBar(Api, Ui) {
         }
         
     }
-    
+    console.log(scrollDataFiltered);
+
     const stockData = await Api.fetchSnapshots(scrollDataFiltered);
 
     await Ui.displaySnapshots(stockData);
