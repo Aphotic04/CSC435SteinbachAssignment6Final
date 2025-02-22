@@ -48,3 +48,16 @@ input[type=submit] {
 img {
     @apply inline;
 }
+
+@theme {
+    --animate-scroll: ticker-scroll 250s linear infinite; 
+    /* Scrolling Animation */
+    @keyframes ticker-scroll {
+        0% { transform: translateX(0); } 
+        100% { transform: translateX(-50%); } 
+    }
+}
+
+#scroll {
+    @apply animate-scroll;
+}

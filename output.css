@@ -374,6 +374,7 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --animate-scroll: ticker-scroll 250s linear infinite;
   }
 }
 @layer base {
@@ -2237,6 +2238,9 @@ input[type=submit] {
 img {
   display: inline;
 }
+#scroll {
+  animation: var(--animate-scroll);
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -2261,6 +2265,14 @@ img {
   50% {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 @property --tw-translate-x {
