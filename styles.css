@@ -4,6 +4,7 @@
 * {
     @apply box-border;
 }
+
 body {
     @apply font-sans text-base;
 }
@@ -58,6 +59,10 @@ img {
     }
 }
 
+header {
+    @apply overflow-hidden;
+}
+
 #scroll {
-    @apply animate-scroll;
+    @apply animate-scroll whitespace-nowrap;
 }

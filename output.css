@@ -2238,8 +2238,12 @@ input[type=submit] {
 img {
   display: inline;
 }
+header {
+  overflow: hidden;
+}
 #scroll {
   animation: var(--animate-scroll);
+  white-space: nowrap;
 }
 @keyframes spin {
   to {

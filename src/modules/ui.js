@@ -75,7 +75,7 @@ export function autocomplete(inp, arr, arr1) {
     a.setAttribute("id", inp.id + "autocomplete-list");
     a.setAttribute("class", "autocomplete-items");
     /*append the DIV element as a child of the autocomplete container:*/
-    inp.parentNode.appendChild(a);
+    document.getElementById('results').appendChild(a);
     /*for each item in the array...*/
     for (i = 0; i < arr.length; i++) {
         /*check if the item starts with the same letters as the text field value:*/
