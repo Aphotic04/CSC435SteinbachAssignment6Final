@@ -35,9 +35,11 @@ export async function displayNews(data) {
         newContainer.classList.add('newsArticle');
 
         newContainer.innerHTML = `
-            <img src="${curr['image_url']}" loading="lazy" width="50px">
+            <img src="${curr['image_url']}" loading="lazy" width="150px">
             <strong>${curr['title']}</strong>
-            <span class='publisher'>${curr['publisher']['name']}<span>
+            <p>
+                <span class='publisher'>${curr['publisher']['name']}<span>
+            </p>
         `;
 
         newContainer.addEventListener("click", (e) => {

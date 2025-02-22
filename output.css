@@ -2221,6 +2221,7 @@ input[type=submit] {
   color: var(--color-red-600);
 }
 .newsArticle {
+  width: calc(1/4 * 100%);
   background-color: var(--color-gray-400);
   &:hover {
     @media (hover: hover) {
@@ -2232,6 +2233,9 @@ input[type=submit] {
       background-color: var(--color-gray-500);
     }
   }
+}
+img {
+  display: inline;
 }
 @keyframes spin {
   to {
