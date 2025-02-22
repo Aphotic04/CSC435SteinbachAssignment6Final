@@ -14,7 +14,7 @@ export async function displayGainersLosers(data, direction) {
         operator = '+';
     } else {
         symbol = '⮟';
-        operator = '-';
+        operator = '';
     }
 
 
@@ -29,7 +29,7 @@ export async function displayGainersLosers(data, direction) {
                 <span class='${direction}'>${operator}${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
             </p>
             <p>
-                <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
+                <span class='${direction}'>$${operator}${parseFloat(curr['todaysChange']).toFixed(3)}</span>
                 $${parseFloat(curr['day']['c']).toFixed(3)}
             </p>
         `;
@@ -59,14 +59,14 @@ export async function displaySnapshots(data) {
         } else {
             direction = "losers";
             symbol = '⮟';
-            operator = '-';
+            operator = '';
         }
 
         newContainer.innerHTML = `
             <span class=${direction}>${symbol}</span>
             ${curr['ticker']}
             <span class=${direction}>${operator}${percent}%</span>
-            <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
+            <span class='${direction}'>$${operator}${parseFloat(curr['todaysChange']).toFixed(3)}</span>
             $${parseFloat(curr['day']['c']).toFixed(3)}
         `;
         container.appendChild(newContainer);
