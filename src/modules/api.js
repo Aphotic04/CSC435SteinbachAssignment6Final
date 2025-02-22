@@ -90,6 +90,7 @@ export async function fetchNews() {
 
 export async function fetchSnapshots(tickers) {
     try {
+        console.log(tickers);
         //Fetch data from API
         const response = await fetch(`../../api/fetch-snapshots.js?tickers=${tickers}`);
         
