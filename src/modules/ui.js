@@ -39,6 +39,8 @@ export async function displayGainersLosers(data, direction) {
 
 export async function displaySnapshots(data) {
     const container = document.getElementById('scroll');
+    
+    container.innerHTML = '';
 
     var symbol;
     var direction;
@@ -67,7 +69,6 @@ export async function displaySnapshots(data) {
             <span class='${direction}'>${operator}$${parseFloat(curr['todaysChange']).toFixed(3)}</span>
             $${parseFloat(curr['day']['c']).toFixed(3)}
         `;
-        container.innerHTML = '';
         container.appendChild(newContainer);
     }
 }
