@@ -34,6 +34,10 @@ export async function displayGainersLosers(data, direction) {
     }
 }
 
+export async function displaySnapshots(data) {
+    const container = document.getElementById('scroll');
+}
+
 export async function displayNews(data) {
     const container = document.getElementById('news');
     const Event = await loadEvent();

@@ -35,14 +35,33 @@ async function handleNews(Api, Ui) {
     await Ui.displayNews(newsData);
 }
 
+async function handleScrollBar(Api, Ui) {
+    var scrollData = await Api.fetchAiStocks();
+
+    scrollData = JSON.parse(scrollData['result']);
+
+    var scrollDataFiltered = "";
+
+    for (var i = 0; i < scrollData.length; i++) {
+        if (i < scrollData.length - 1) {
+            scrollDataFiltered += scrollData[i].ticker + ",";
+        } else {
+            scrollDataFiltered += scrollData[i].ticker
+        }
+        
+    }
+    
+    const stockData = await Api.fetchSnapshots(scrollDataFiltered);
+
+    await Ui.displaySnapshots(stockData);
+}
+
 
 await handleGainerLoser(Api, Ui);
 
 await handleNews(Api, Ui);
 
-const temp = await Api.fetchAiStocks();
-
-console.log(JSON.parse(temp['result']));
+await handleScrollBar(Api, Ui);
 
 const Events = await loadEvent();
 
