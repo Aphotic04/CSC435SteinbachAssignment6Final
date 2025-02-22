@@ -2161,36 +2161,36 @@
     transform-box: view-box;
   }
 }
-* {
+.index * {
   box-sizing: border-box;
 }
-body {
+.index body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
 }
-.autocomplete {
+.index .autocomplete {
   position: relative;
   display: inline-block;
 }
-input {
+.index input {
   border-color: transparent;
   background-color: var(--color-gray-200);
   padding: calc(var(--spacing) * 2);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
 }
-input[type=text] {
+.index input[type=text] {
   margin-inline: auto;
   display: block;
   width: calc(1/2 * 100%);
   background-color: var(--color-gray-200);
 }
-input[type=submit] {
+.index input[type=submit] {
   background-color: var(--color-blue-500);
   color: var(--color-white);
 }
-.autocomplete-items {
+.index .autocomplete-items {
   position: absolute;
   z-index: 50;
   width: 100%;
@@ -2200,7 +2200,7 @@ input[type=submit] {
   border-top-width: 0px;
   border-color: var(--color-gray-300);
 }
-.autocomplete-items div {
+.index .autocomplete-items div {
   cursor: pointer;
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
@@ -2208,20 +2208,20 @@ input[type=submit] {
   background-color: var(--color-white);
   padding: calc(var(--spacing) * 2);
 }
-.autocomplete-items div:hover {
+.index .autocomplete-items div:hover {
   background-color: var(--color-gray-200);
 }
-.autocomplete-active {
+.index .autocomplete-active {
   background-color: var(--color-blue-500);
   color: var(--color-white);
 }
-.gainers {
+.index .gainers {
   color: var(--color-green-600);
 }
-.losers {
+.index .losers {
   color: var(--color-red-600);
 }
-.newsArticle {
+.index .newsArticle {
   width: calc(1/4 * 100%);
   background-color: var(--color-gray-400);
   &:hover {
@@ -2235,18 +2235,18 @@ input[type=submit] {
     }
   }
 }
-img {
+.index img {
   display: inline;
 }
-header {
+.index header {
   overflow: hidden;
 }
-#scroll {
+.index #scroll {
   animation: var(--animate-scroll);
   white-space: nowrap;
 }
-.scrollElement {
-  display: inline;
+.index .scrollElement {
+  display: inline-block;
 }
 @keyframes spin {
   to {

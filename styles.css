@@ -1,52 +1,52 @@
 @import "tailwindcss";
 
 
-* {
+.index * {
     @apply box-border;
 }
 
-body {
+.index body {
     @apply font-sans text-base;
 }
 
-.autocomplete {
+.index .autocomplete {
     @apply relative inline-block;
 }
-input {
+.index input {
     @apply border-transparent bg-gray-200 p-2 text-base;
 }
-input[type=text] {
+.index input[type=text] {
     @apply block mx-auto bg-gray-200 w-1/2;
 }
-input[type=submit] {
+.index input[type=submit] {
     @apply bg-blue-500 text-white;
 }
-.autocomplete-items {
+.index .autocomplete-items {
     @apply absolute border border-gray-300 border-t-0 z-50 w-full;
 }
-.autocomplete-items div {
+.index .autocomplete-items div {
     @apply p-2 cursor-pointer bg-white border-b border-gray-300;
 }
-.autocomplete-items div:hover {
+.index .autocomplete-items div:hover {
     @apply bg-gray-200;
 }
-.autocomplete-active {
+.index .autocomplete-active {
     @apply bg-blue-500 text-white;
 }
 
-.gainers {
+.index .gainers {
     @apply text-green-600;
 }
 
-.losers {
+.index .losers {
     @apply text-red-600;
 }
 
-.newsArticle {
+.index .newsArticle {
     @apply bg-gray-400 hover:bg-gray-500 hover:cursor-pointer w-1/4;
 }
 
-img {
+.index img {
     @apply inline;
 }
 
@@ -59,14 +59,14 @@ img {
     }
 }
 
-header {
+.index header {
     @apply overflow-hidden;
 }
 
-#scroll {
+.index #scroll {
     @apply animate-scroll whitespace-nowrap;
 }
 
-.scrollElement {
-    @apply inline-block mx-15px;
+.index .scrollElement {
+    @apply inline-block;
 }
