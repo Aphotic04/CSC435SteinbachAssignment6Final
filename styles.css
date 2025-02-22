@@ -68,5 +68,5 @@ header {
 }
 
 .scrollElement {
-    @apply inline;
+    @apply inline-block mx-15px;
 }
