@@ -29,7 +29,7 @@ export async function displayNews(data) {
     const container = document.getElementById('news');
     const Event = await loadEvent();
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < 10; i++) {
         const newContainer = document.createElement('div');
         const curr = data[i];
 
@@ -43,6 +43,8 @@ export async function displayNews(data) {
 
         const newsClick = Event.clickNews(curr['article_url']);
         newContainer.addEventListener("click", newsClick);
+
+        container.appendChild(newContainer);
     }
 }
 
