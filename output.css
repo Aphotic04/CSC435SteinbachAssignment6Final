@@ -2195,7 +2195,7 @@
     transform-box: view-box;
   }
 }
-.index * {
+* {
   box-sizing: border-box;
 }
 .index body {

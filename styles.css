@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 
-.index * {
+ * {
     @apply box-border;
 }
 
