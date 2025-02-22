@@ -1,4 +1,9 @@
-export function displayGainersLosers(data, direction) {
+async function loadEvent() {
+    const Events = await import("./modules/event.js");
+    return Events;
+}
+
+export async function displayGainersLosers(data, direction) {
     const container = document.getElementById(direction);
 
     for (var i = 0; i < 20; i++) {
@@ -17,6 +22,27 @@ export function displayGainersLosers(data, direction) {
             </p>
         `;
         container.appendChild(newContainer);
+    }
+}
+
+export async function displayNews(data) {
+    const container = document.getElementById('news');
+    const Event = await loadEvent();
+
+    for (var i = 0; i < data.length; i++) {
+        const newContainer = document.createElement('div');
+        const curr = data[i];
+
+        newContainer.classList.add('newsArticle');
+
+        newContainer.innerHTML = `
+            <img src="${curr['img_url']}" alt="${curr}" loading="lazy">
+            <strong>${curr['title']}</strong>
+            <span class='publisher'>${curr['publisher']['name']}<span>
+        `;
+
+        const newsClick = Event.clickNews(curr['article_url']);
+        newContainer.addEventListener("click", newsClick);
     }
 }
 

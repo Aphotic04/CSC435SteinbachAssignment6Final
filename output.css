@@ -2220,6 +2220,19 @@ input[type=submit] {
 .losers {
   color: var(--color-red-600);
 }
+.newsArticle {
+  background-color: var(--color-gray-400);
+  &:hover {
+    @media (hover: hover) {
+      cursor: pointer;
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-500);
+    }
+  }
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);

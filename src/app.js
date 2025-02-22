@@ -13,25 +13,32 @@ async function loadUi() {
     return Ui;
 }
 
-async function handleGainerLoser() {
-    const Api = await loadApi();
+const Api = await loadApi();
+const Ui = await loadUi();
 
+async function handleGainerLoser(Api, Ui) {
     var gainerData = await Api.fetchGainersLosers('gainers');
     var loserData = await Api.fetchGainersLosers('losers');
 
     gainerData = gainerData['tickers'];
     loserData = loserData['tickers'];
 
-    const Ui = await loadUi();
+    await Ui.displayGainersLosers(gainerData, "gainers");
+    await Ui.displayGainersLosers(loserData, "losers");
+}
 
-    Ui.displayGainersLosers(gainerData, "gainers");
-    Ui.displayGainersLosers(loserData, "losers");
+async function handleNews(Api, Ui) {
+    var newsData = Api.fetchNews();
+
+    newsData = newsData['results'];
+
+    await Ui.displayNews(newsData);
 }
 
 
+await handleGainerLoser(Api, Ui);
 
-
-await handleGainerLoser();
+await handleNews(Api, Ui);
 
 
 const Events = await loadEvent();

@@ -46,3 +46,7 @@ async function stockSearchEvent() {
 }
 
 export const debouncedSearchEvent = debounce(stockSearchEvent, 400);
+
+export function clickNews(link) {
+    window.open(link, "_blank");
+}
