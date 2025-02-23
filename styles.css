@@ -31,19 +31,19 @@ input[type=submit] {
 }
 
 .gainers {
-    @apply text-green-600;
+    @apply text-green-500;
 }
 
 .losers {
-    @apply text-red-600;
+    @apply text-red-500;
 }
 
 .newsArticle {
-    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 text-black rounded-l;
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 rounded-xl;
 }
 
 img {
-    @apply block bg-gray-300 m-3 rounded-xl;
+    @apply block bg-gray-300 m-3 rounded-xl text-black;
 }
 
 .newsArticle strong {

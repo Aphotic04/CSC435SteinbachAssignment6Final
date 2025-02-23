@@ -2245,19 +2245,17 @@ input[type=submit] {
   color: var(--color-white);
 }
 .gainers {
-  color: var(--color-green-600);
+  color: var(--color-green-500);
 }
 .losers {
-  color: var(--color-red-600);
+  color: var(--color-red-500);
 }
 .newsArticle {
   margin-block: calc(var(--spacing) * 3);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-radius: var(--radius-xl);
   background-color: var(--color-gray-500);
-  color: var(--color-black);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2274,6 +2272,7 @@ img {
   display: block;
   border-radius: var(--radius-xl);
   background-color: var(--color-gray-300);
+  color: var(--color-black);
 }
 .newsArticle strong {
   grid-column: span 2 / span 2;
