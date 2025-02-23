@@ -2202,7 +2202,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: calc(var(--spacing) * 4);
-  background-color: var(--color-gray-600);
+  background-color: var(--color-gray-700);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
@@ -2261,7 +2261,9 @@ input[type=submit] {
   color: var(--color-red-600);
 }
 .newsArticle {
-  background-color: var(--color-gray-400);
+  margin-block: calc(var(--spacing) * 3);
+  background-color: var(--color-gray-800);
+  color: var(--color-black);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2269,7 +2271,7 @@ input[type=submit] {
   }
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-500);
+      background-color: var(--color-gray-700);
     }
   }
 }
@@ -2325,7 +2327,7 @@ h2 {
   }
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-700);
+      background-color: var(--color-gray-800);
     }
   }
 }

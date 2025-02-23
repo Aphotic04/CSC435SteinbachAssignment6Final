@@ -6,7 +6,7 @@
 }
 
 #indexBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-600 text-white;
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
 }
 
 .autocomplete {
@@ -43,7 +43,7 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-400 hover:bg-gray-500 hover:cursor-pointer;
+    @apply bg-gray-800 hover:bg-gray-700 hover:cursor-pointer text-black my-3;
 }
 
 img {
@@ -96,7 +96,7 @@ h2 {
 }
 
 .snapshotElement, .gainerLoserElement {
-    @apply bg-gray-950 text-white hover:bg-gray-700 hover:cursor-pointer;
+    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer;
 }
 
 .stock a {
