@@ -137,7 +137,7 @@ async function handleRelated() {
     }
     const stockData = await Api.fetchSnapshots(dataFiltered);
 
-    await Ui.displaySnapshots(stockData, 'relatedStocks');
+    await Ui.displaySnapshots(stockData['tickers'], 'relatedStocks');
 }
 
 await handleRelated();
