@@ -55,3 +55,9 @@ export function clickStock() {
     sessionStorage.setItem('currStock', this.id);
     window.location.assign("./stock.html");
 }
+
+export function clickStockSearch() {
+    const searchBar = document.getElementById('txtStock');
+    sessionStorage.setItem('currStock', searchBar.value);
+    window.location.assign("./stock.html");
+}
