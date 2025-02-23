@@ -163,10 +163,18 @@ export async function displayStockDesc(data, name) {
 export async function displayCompanyDesc(data) {
     const companyDesc = document.getElementById('companyDesc');
 
-    companyDesc.innerHTML = `
-        <strong>About ${data['name']}</strong>
-        <p>${data['description']}</p>
-    `;
+    if (data['description'] === "undefined") {
+        companyDesc.innerHTML = `
+            <strong>About ${data['name']}</strong>
+            <p>No description available. Sorry for the inconvenience.</p>
+        `;
+    } else {
+        companyDesc.innerHTML = `
+            <strong>About ${data['name']}</strong>
+            <p>${data['description']}</p>
+        `;
+    }
+    
 }
 
 
