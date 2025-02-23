@@ -126,7 +126,11 @@ h2 {
 .s
 
 .stock main {
-    @apply col-span-3 w-1/2 h-80 mx-auto;
+    @apply col-span-3 w-1/2 mx-auto;
+}
+
+.stock #container {
+    @apply w-100% h-60;
 }
 
 .stock select {
