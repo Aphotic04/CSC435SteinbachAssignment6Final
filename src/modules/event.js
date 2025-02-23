@@ -58,8 +58,16 @@ export function clickStock() {
 
 export function clickStockSearch() {
     const searchBar = document.getElementById('txtStock');
-    sessionStorage.setItem('currStock', searchBar.value);
-    window.location.assign("./stock.html");
+    const results = document.getElementById('results');
+    const searchValue = searchBar.value;
+
+    if (/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10) {
+        results.innerHTML = 'Invalid Ticker'
+    } else {
+        sessionStorage.setItem('currStock', searchValue);
+        window.location.assign("./stock.html");
+    }
+    
 }
 
 export function changeGrouping(option, grouping, chart) {
