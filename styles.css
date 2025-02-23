@@ -122,11 +122,11 @@ h2 {
 }
 
 .stock main {
-    @apply col-start-2;
+    @apply col-span-3 w-1/2;
 }
 
 .stock #companyDesc {
-    @apply col-start-2;
+    @apply col-span-3 w-1/2;
 }
 
 .stock #relatedStocksCont {

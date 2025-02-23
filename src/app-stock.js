@@ -146,7 +146,7 @@ async function handleRelated() {
 }
 
 async function handleRelatedNews() {
-    var data = await Api.fetchNews();
+    var data = await Api.fetchRelatedNews(thisStock,5);
 
     data = data['results'];
     

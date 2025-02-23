@@ -2374,10 +2374,12 @@ h2 {
   grid-column: span 3 / span 3;
 }
 .stock main {
-  grid-column-start: 2;
+  grid-column: span 3 / span 3;
+  width: calc(1/2 * 100%);
 }
 .stock #companyDesc {
-  grid-column-start: 2;
+  grid-column: span 3 / span 3;
+  width: calc(1/2 * 100%);
 }
 .stock #relatedStocksCont {
   grid-column: span 2 / span 2;
