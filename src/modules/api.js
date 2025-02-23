@@ -97,7 +97,7 @@ export async function fetchStock(ticker) {
     
     console.log(ticker);
     console.log(todaysDate);
-    console.log(yesterdaysDate);
+    console.log(tomorrowsDate);
     const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&tomorrow=${tomorrowsDate}`);
     return response;
 }
