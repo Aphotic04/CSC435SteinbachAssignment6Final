@@ -95,6 +95,13 @@ export async function fetchNews() {
     return response;
 }
 
+export async function fetchRelatedNews(ticker) {
+    const tickerCall = `ticker=${ticker}&`;
+    const encodedContent = encodeURIComponent(tickerCall);
+    const response = await fetchOutline(`../../api/fetch-news-stocks.js?ticker=${encodedContent}`);
+    return response;
+}
+
 export async function fetchSnapshots(tickers) {
     const response = await fetchOutline(`../../api/fetch-snapshots.js?tickers=${tickers}`);
     return response;

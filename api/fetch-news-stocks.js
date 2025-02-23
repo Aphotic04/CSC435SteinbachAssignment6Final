@@ -2,9 +2,12 @@ export default async function handler(req, res) {
   try {
     const apiKey = process.env.API_KEY; // Securely stored on Vercel
 
+    const ticker = req.query.ticker || "";
+    const tickerDecode = decodeURIComponent(ticker);
+
     // Get the ticker from query parameters, defaulting to 'A' if not provided
 
-    const response = await fetch(`https://api.polygon.io/v2/reference/news?limit=10&apiKey=${apiKey}`);
+    const response = await fetch(`https://api.polygon.io/v2/reference/news?${tickerDecode}limit=10&apiKey=${apiKey}`);
 
     //If response is not ok, throw error
     if (!response.ok) {

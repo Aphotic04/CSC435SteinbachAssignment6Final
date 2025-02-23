@@ -2255,7 +2255,7 @@
 .losers {
   color: var(--color-red-600);
 }
-.index .newsArticle {
+.newsArticle {
   width: calc(1/4 * 100%);
   background-color: var(--color-gray-400);
   &:hover {
@@ -2269,7 +2269,7 @@
     }
   }
 }
-.index img {
+img {
   display: inline;
 }
 .index header {

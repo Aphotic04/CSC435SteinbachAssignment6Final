@@ -42,11 +42,11 @@
     @apply text-red-600;
 }
 
-.index .newsArticle {
+.newsArticle {
     @apply bg-gray-400 hover:bg-gray-500 hover:cursor-pointer w-1/4;
 }
 
-.index img {
+img {
     @apply inline;
 }
 

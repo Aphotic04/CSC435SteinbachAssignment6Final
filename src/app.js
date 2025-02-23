@@ -16,7 +16,7 @@ async function loadUi() {
 const Api = await loadApi();
 const Ui = await loadUi();
 
-async function handleGainerLoser(Api, Ui) {
+async function handleGainerLoser() {
     var gainerData = await Api.fetchGainersLosers('gainers');
     var loserData = await Api.fetchGainersLosers('losers');
 
@@ -27,15 +27,15 @@ async function handleGainerLoser(Api, Ui) {
     await Ui.displayGainersLosers(loserData, "losers");
 }
 
-async function handleNews(Api, Ui) {
+async function handleNews() {
     var newsData = await Api.fetchNews();
 
     newsData = newsData['results'];
     
-    await Ui.displayNews(newsData);
+    await Ui.displayNews(newsData, 'news');
 }
 
-async function handleScrollBar(Api, Ui) {
+async function handleScrollBar() {
     var scrollData = await Api.fetchAiStocks();
 
     scrollData = JSON.parse(scrollData['result']);
@@ -64,11 +64,11 @@ document.getElementById('txtStock').addEventListener('keydown', async (e) => {
     }
 });
 
-await handleGainerLoser(Api, Ui);
+await handleGainerLoser();
 
-await handleNews(Api, Ui);
+await handleNews();
 
-await handleScrollBar(Api, Ui);
+await handleScrollBar();
 
 
 

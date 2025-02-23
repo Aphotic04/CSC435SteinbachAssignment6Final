@@ -30,22 +30,6 @@ function formatTimestamp(unixMs) {
 const Ui = await loadUi();
 const Api = await loadApi();
 
-
-async function handleStockDesc(name) {
-    const data = await Api.fetchSnapshots(thisStock);
-
-    await Ui.displayStockDesc(data['tickers'][0], name);
-}
-
-async function handleCompanyDesc() {
-    const data = await Api.fetchCompanyDesc(thisStock);
-
-    await Ui.displayCompanyDesc(data['results']);
-
-    return data['results']['name'];
-}
-
-
 const companyName = await handleCompanyDesc();
 
 await handleStockDesc(companyName);
@@ -120,6 +104,20 @@ anychart.onDocumentReady(async function () {
 
 });
 
+async function handleStockDesc(name) {
+    const data = await Api.fetchSnapshots(thisStock);
+
+    await Ui.displayStockDesc(data['tickers'][0], name);
+}
+
+async function handleCompanyDesc() {
+    const data = await Api.fetchCompanyDesc(thisStock);
+
+    await Ui.displayCompanyDesc(data['results']);
+
+    return data['results']['name'];
+}
+
 async function handleRelated() {
     var data = await Api.fetchAiRelated(thisStock);
 
@@ -139,5 +137,15 @@ async function handleRelated() {
 
     await Ui.displaySnapshots(stockData['tickers'], 'relatedStocks');
 }
+
+async function handleRelatedNews() {
+    var data = await Api.fetchNews();
+
+    data = data['results'];
+    
+    await Ui.displayNews(data, 'relatedNews');
+}
+
+await handleRelatedNews();
 
 await handleRelated();
