@@ -2262,7 +2262,7 @@ input[type=submit] {
 }
 .newsArticle {
   margin-block: calc(var(--spacing) * 3);
-  background-color: var(--color-gray-400);
+  background-color: var(--color-gray-500);
   color: var(--color-black);
   &:hover {
     @media (hover: hover) {
@@ -2271,7 +2271,7 @@ input[type=submit] {
   }
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-500);
+      background-color: var(--color-gray-600);
     }
   }
 }
