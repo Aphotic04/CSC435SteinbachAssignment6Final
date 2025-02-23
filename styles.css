@@ -43,7 +43,7 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-700 hover:bg-gray-500 hover:cursor-pointer text-black my-3;
+    @apply bg-gray-400 hover:bg-gray-500 hover:cursor-pointer text-black my-3;
 }
 
 img {
@@ -89,10 +89,6 @@ h1 {
 
 .index main {
     @apply col-span-2 grid grid-cols-2 gap-2;
-}
-
-.index article {
-    @apply bg-gray-600;
 }
 
 h2 {
