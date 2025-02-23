@@ -2263,7 +2263,7 @@ input[type=submit] {
 .newsArticle {
   margin-block: calc(var(--spacing) * 3);
   background-color: var(--color-gray-800);
-  color: var(--color-black);
+  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;

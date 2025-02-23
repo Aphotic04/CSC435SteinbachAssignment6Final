@@ -43,7 +43,7 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-800 hover:bg-gray-700 hover:cursor-pointer text-black my-3;
+    @apply bg-gray-800 hover:bg-gray-700 hover:cursor-pointer text-white my-3;
 }
 
 img {
