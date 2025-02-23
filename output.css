@@ -2235,11 +2235,12 @@ input[type=submit] {
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
   border-color: var(--color-gray-300);
-  background-color: var(--color-black);
+  background-color: var(--color-white);
   padding: calc(var(--spacing) * 2);
+  color: var(--color-black);
 }
 .autocomplete-items div:hover {
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-300);
 }
 .autocomplete-active {
   background-color: var(--color-blue-500);

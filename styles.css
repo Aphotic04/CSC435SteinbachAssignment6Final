@@ -21,10 +21,10 @@ input[type=submit] {
     @apply absolute border border-gray-300 border-t-0 z-50 w-full;
 }
 .autocomplete-items div {
-    @apply p-2 cursor-pointer bg-black border-b border-gray-300;
+    @apply p-2 cursor-pointer bg-white text-black border-b border-gray-300;
 }
 .autocomplete-items div:hover {
-    @apply bg-gray-200;
+    @apply bg-gray-300;
 }
 .autocomplete-active {
     @apply bg-blue-500 text-black;
