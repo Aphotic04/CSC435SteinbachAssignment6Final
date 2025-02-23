@@ -84,26 +84,27 @@ anychart.onDocumentReady(async function () {
     var scale = chart.xScale();
     scale.minimumGap({intervalsCount: 1, unitType: 'min', unitCount: 1});
 
-    const Api = await loadApi();
-    var stockData = await Api.fetchStock(sessionStorage.getItem('currStock'));
-    stockData = stockData['results'];
-
-    var stockFiltered = [];
-
-    for (var i = 0; i < stockData.length; i++) {
-        const thisAgg = stockData[i];
-        var aggArray = [];
-
-        aggArray.push(formatTimestamp(thisAgg['t']));
-        aggArray.push(thisAgg['o']);
-        aggArray.push(thisAgg['h']);
-        aggArray.push(thisAgg['l']);
-        aggArray.push(thisAgg['c']);
-
-        stockFiltered.push(aggArray);
-    }
+    
     // Create data
-    function data() {
+    async function data() {
+        const Api = await loadApi();
+        var stockData = await Api.fetchStock(sessionStorage.getItem('currStock'));
+        stockData = stockData['results'];
+
+        var stockFiltered = [];
+
+        for (var i = 0; i < stockData.length; i++) {
+            const thisAgg = stockData[i];
+            var aggArray = [];
+
+            aggArray.push(formatTimestamp(thisAgg['t']));
+            aggArray.push(thisAgg['o']);
+            aggArray.push(thisAgg['h']);
+            aggArray.push(thisAgg['l']);
+            aggArray.push(thisAgg['c']);
+
+            stockFiltered.push(aggArray);
+        }
         console.log(stockFiltered);
         return stockFiltered;
     };
