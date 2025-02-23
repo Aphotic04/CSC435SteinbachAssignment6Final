@@ -39,7 +39,7 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3;
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 text-black rounded-l;
 }
 
 img {
@@ -88,7 +88,7 @@ h2 {
 }
 
 .index #scroll {
-    @apply animate-scroll whitespace-nowrap bg-gray-950 text-white;
+    @apply animate-scroll whitespace-nowrap bg-gray-950;
 }
 
 .index .snapshotElement {

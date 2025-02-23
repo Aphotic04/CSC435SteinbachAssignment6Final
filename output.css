@@ -2254,7 +2254,10 @@ input[type=submit] {
   margin-block: calc(var(--spacing) * 3);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
   background-color: var(--color-gray-500);
+  color: var(--color-black);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2333,7 +2336,6 @@ h2 {
   animation: var(--animate-scroll);
   background-color: var(--color-gray-950);
   white-space: nowrap;
-  color: var(--color-white);
 }
 .index .snapshotElement {
   display: inline-block;
