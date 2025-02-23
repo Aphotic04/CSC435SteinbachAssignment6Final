@@ -114,10 +114,10 @@ export async function fetchSnapshots(tickers) {
 export async function fetchStock(ticker) {
     try {
         var todaysDate = new Date();
-        var yesterdaysDate = todaysDate.getDate() - 1;
+        var yesterdaysDate = new Date();
+        yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
 
-
-        todaysDate = todaysDate.toLocaleDateString('en-CA');
+        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
         yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
 
         //Fetch data from API
