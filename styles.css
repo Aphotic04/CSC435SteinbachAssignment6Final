@@ -9,28 +9,28 @@
     @apply font-sans text-base;
 }
 
-.index .autocomplete {
+.autocomplete {
     @apply relative inline-block;
 }
-.index input {
+input {
     @apply border-transparent bg-gray-200 p-2 text-base;
 }
-.index input[type=text] {
+input[type=text] {
     @apply block mx-auto bg-gray-200 w-1/2;
 }
-.index input[type=submit] {
+input[type=submit] {
     @apply bg-blue-500 text-white;
 }
-.index .autocomplete-items {
+.autocomplete-items {
     @apply absolute border border-gray-300 border-t-0 z-50 w-full;
 }
-.index .autocomplete-items div {
+.autocomplete-items div {
     @apply p-2 cursor-pointer bg-white border-b border-gray-300;
 }
-.index .autocomplete-items div:hover {
+.autocomplete-items div:hover {
     @apply bg-gray-200;
 }
-.index .autocomplete-active {
+.autocomplete-active {
     @apply bg-blue-500 text-white;
 }
 

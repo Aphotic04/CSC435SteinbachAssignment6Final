@@ -2203,28 +2203,28 @@
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
 }
-.index .autocomplete {
+.autocomplete {
   position: relative;
   display: inline-block;
 }
-.index input {
+input {
   border-color: transparent;
   background-color: var(--color-gray-200);
   padding: calc(var(--spacing) * 2);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
 }
-.index input[type=text] {
+input[type=text] {
   margin-inline: auto;
   display: block;
   width: calc(1/2 * 100%);
   background-color: var(--color-gray-200);
 }
-.index input[type=submit] {
+input[type=submit] {
   background-color: var(--color-blue-500);
   color: var(--color-white);
 }
-.index .autocomplete-items {
+.autocomplete-items {
   position: absolute;
   z-index: 50;
   width: 100%;
@@ -2234,7 +2234,7 @@
   border-top-width: 0px;
   border-color: var(--color-gray-300);
 }
-.index .autocomplete-items div {
+.autocomplete-items div {
   cursor: pointer;
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
@@ -2242,10 +2242,10 @@
   background-color: var(--color-white);
   padding: calc(var(--spacing) * 2);
 }
-.index .autocomplete-items div:hover {
+.autocomplete-items div:hover {
   background-color: var(--color-gray-200);
 }
-.index .autocomplete-active {
+.autocomplete-active {
   background-color: var(--color-blue-500);
   color: var(--color-white);
 }
