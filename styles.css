@@ -62,7 +62,7 @@ h2 {
     @apply block mx-auto text-2xl
 }
 
-.snapshotElement, .gainerLoserElement {
+.snapshotElement{
     @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer;
 }
 
@@ -91,6 +91,10 @@ h2 {
     @apply animate-scroll whitespace-nowrap bg-gray-950;
 }
 
+.index #scroll div, .index #scroll div p {
+    @apply inline;
+}
+
 .index .snapshotElement {
     @apply inline-block;
 }
@@ -110,6 +114,8 @@ h2 {
 .index main {
     @apply col-span-2 grid grid-cols-2 gap-2;
 }
+
+
 
 
 

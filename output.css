@@ -2296,7 +2296,7 @@ h2 {
   font-size: var(--text-2xl);
   line-height: var(--tw-leading, var(--text-2xl--line-height));
 }
-.snapshotElement, .gainerLoserElement {
+.snapshotElement {
   background-color: var(--color-gray-950);
   color: var(--color-white);
   &:hover {
@@ -2340,6 +2340,9 @@ h2 {
   animation: var(--animate-scroll);
   background-color: var(--color-gray-950);
   white-space: nowrap;
+}
+.index #scroll div, .index #scroll div p {
+  display: inline;
 }
 .index .snapshotElement {
   display: inline-block;

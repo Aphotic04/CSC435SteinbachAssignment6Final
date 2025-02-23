@@ -3,47 +3,6 @@ async function loadEvent() {
     return Events;
 }
 
-export async function displayGainersLosers(data, direction) {
-    const container = document.getElementById(direction);
-
-    const Event = await loadEvent();
-    
-    var symbol;
-    var operator;
-
-    if (direction == "gainers") {
-        symbol = '⮝';
-        operator = '+';
-    } else {
-        symbol = '⮟';
-        operator = '';
-    }
-
-
-    for (var i = 0; i < 20; i++) {
-        const newContainer = document.createElement('li');
-        const curr = data[i];
-
-        newContainer.id = curr['ticker'];
-        newContainer.classList.add('gainerLoserElement');
-
-        newContainer.addEventListener('click', Event.clickStock);
-
-        newContainer.innerHTML = `
-            <p>
-                <span class='${direction}'>${symbol}</span>
-                ${curr['ticker']}
-                <span class='${direction}'>${operator}${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
-            </p>
-            <p>
-                <span class='${direction}'>$${operator}${parseFloat(curr['todaysChange']).toFixed(3)}</span>
-                $${parseFloat(curr['day']['c']).toFixed(3)}
-            </p>
-        `;
-        container.appendChild(newContainer);
-    }
-}
-
 export async function displaySnapshots(data, elementId) {
     const container = document.getElementById(elementId);
 
@@ -75,11 +34,15 @@ export async function displaySnapshots(data, elementId) {
         }
 
         newContainer.innerHTML = `
-            <span class=${direction}>${symbol}</span>
-            ${curr['ticker']}
-            <span class=${direction}>${operator}${percent}%</span>
-            <span class='${direction}'>$${operator}${parseFloat(curr['todaysChange']).toFixed(3)}</span>
-            $${parseFloat(curr['day']['c']).toFixed(3)}
+            <p>
+                <span class='${direction}'>${symbol}</span>
+                ${curr['ticker']}
+                <span class='${direction}'>${operator}${parseFloat(curr['todaysChangePerc']).toFixed(3)}%</span>
+            </p>
+            <p>
+                <span class='${direction}'>$${operator}${parseFloat(curr['todaysChange']).toFixed(3)}</span>
+                $${parseFloat(curr['day']['c']).toFixed(3)}
+            </p>
         `;
         container.appendChild(newContainer);
     }

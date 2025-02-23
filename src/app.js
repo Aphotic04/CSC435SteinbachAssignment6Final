@@ -23,8 +23,8 @@ async function handleGainerLoser() {
     gainerData = gainerData['tickers'];
     loserData = loserData['tickers'];
 
-    await Ui.displayGainersLosers(gainerData, "gainers");
-    await Ui.displayGainersLosers(loserData, "losers");
+    await Ui.displaySnapshots(gainerData, "gainers");
+    await Ui.displaySnapshots(loserData, "losers");
 }
 
 async function handleNews() {
