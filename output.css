@@ -2378,8 +2378,11 @@ h2 {
 .s .stock main {
   grid-column: span 3 / span 3;
   margin-inline: auto;
-  height: calc(var(--spacing) * 80);
   width: calc(1/2 * 100%);
+}
+.stock #container {
+  height: calc(var(--spacing) * 150);
+  width: calc(2/2 * 100%);
 }
 .stock select {
   background-color: var(--color-gray-800);

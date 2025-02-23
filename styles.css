@@ -130,7 +130,7 @@ h2 {
 }
 
 .stock #container {
-    @apply w-100% h-60;
+    @apply w-2/2 h-150;
 }
 
 .stock select {
