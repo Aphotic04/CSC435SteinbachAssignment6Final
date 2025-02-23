@@ -110,6 +110,25 @@ export async function displayNews(data) {
     }
 }
 
+
+
+
+
+export async function displayGrouping() {
+    const select = document.getElementById('optGrouping');
+
+    select.innerHTML = `
+        <option value="60">Select Grouping</option>
+        <option value="1">1 Minute</option>
+        <option value="5">5 Minutes</option>
+        <option value="10">10 Minutes</option>
+        <option value="30">30 Minutes</option>
+        <option value="60">60 Minutes</option>
+    `;
+}
+
+
+
 export function autocomplete(inp, arr, arr1) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

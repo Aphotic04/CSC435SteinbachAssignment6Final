@@ -61,3 +61,8 @@ export function clickStockSearch() {
     sessionStorage.setItem('currStock', searchBar.value);
     window.location.assign("./stock.html");
 }
+
+export function changeGrouping(option, grouping, chart) {
+    grouping.levels([{unit: 'minute', count: parseInt(option)}]);
+    chart.title(`Current grouping level: ${option} minutes`);
+}

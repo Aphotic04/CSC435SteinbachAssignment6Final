@@ -34,7 +34,7 @@ anychart.onDocumentReady(async function () {
     plot.candlestick(dataTable.mapAs({'open': 1, 'high': 2, 'low': 3, 'close': 4}));
     
     // Add a title
-    chart.title('Current grouping level: 5 minutes');
+    chart.title('Current grouping level: 60 Minutes');
     
     // Specify a container
     chart.container('container');
@@ -48,37 +48,16 @@ anychart.onDocumentReady(async function () {
     // set the initial grouping level to 5 minutes
     grouping.levels([{
         unit: 'minute',
-        count: 5
+        count: 60
     }]);
     // force the grouping
     grouping.forced(true);
     
-    // Change grouping to 1 minute on button click
-    document
-        .getElementById('1minBtn')
-        .addEventListener('click', function() {
-        grouping.levels([{unit: 'minute', count: 1}]);
-        scale.minimumGap({intervalsCount: 10, unitType: 'sec', unitCount: 1});
-        chart.title('Current grouping level: 1 minute');
-        });
-    
-    // Change grouping to 5 minutes on button click
-    document
-        .getElementById('5minBtn')
-        .addEventListener('click', function() {
-        grouping.levels([{unit: 'minute', count: 5}]);
-        scale.minimumGap({intervalsCount: 1, unitType: 'min', unitCount: 1});
-        chart.title('Current grouping level: 5 minutes');
-        });
-    
-    // Change grouping to 10 minutes on button click
-    document
-        .getElementById('10minBtn')
-        .addEventListener('click', function() {
-        grouping.levels([{unit: 'minute', count: 10}]);
-        scale.minimumGap({intervalsCount: 3, unitType: 'min', unitCount: 1});
-        chart.title('Current grouping level: 10 minutes');
-        });
+    const Event = await loadEvent();
+
+    document.getElementById('optGrouping').addEventListener('change', async (e) => {
+        await Event.changeGrouping(e.target.value, grouping, chart);
+    });
     
     // Set the initial gap
     var scale = chart.xScale();
@@ -110,3 +89,4 @@ anychart.onDocumentReady(async function () {
     };
 
 });
+
