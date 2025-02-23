@@ -64,6 +64,7 @@ export function clickStockSearch() {
     if (!/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10) {
         results.innerHTML = 'Invalid Ticker'
     } else {
+        results.innerHTML = "";
         sessionStorage.setItem('currStock', searchValue);
         window.location.assign("./stock.html");
     }
