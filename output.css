@@ -2341,10 +2341,7 @@ h2 {
   background-color: var(--color-gray-950);
   white-space: nowrap;
 }
-.index #scroll div, .index #scroll div p {
-  display: inline;
-}
-.index .snapshotElement {
+.index #scroll .snapshotElement {
   display: inline-block;
 }
 .index #title {

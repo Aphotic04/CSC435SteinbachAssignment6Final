@@ -91,13 +91,11 @@ h2 {
     @apply animate-scroll whitespace-nowrap bg-gray-950;
 }
 
-.index #scroll div, .index #scroll div p {
-    @apply inline;
-}
-
-.index .snapshotElement {
+.index #scroll .snapshotElement {
     @apply inline-block;
 }
+
+
 
 .index #title {
     @apply col-span-3 mx-auto;
