@@ -5,9 +5,9 @@ export default async function handler(req, res) {
     // Get the ticker from query parameters, defaulting to 'A' if not provided
     const ticker = req.query.ticker;
     const today = req.query.today;
-    const yesterday = req.query.yesterday;
+    const tomorrow = req.query.tomorrow;
 
-    const response = await fetch(`https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/minute/${yesterday}/${today}?adjusted=true&sort=asc&apiKey=${apiKey}`);
+    const response = await fetch(`https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/minute/${today}/${tomorrow}?adjusted=true&sort=asc&apiKey=${apiKey}`);
 
     //If response is not ok, throw error
     if (!response.ok) {

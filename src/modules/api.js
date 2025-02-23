@@ -1,3 +1,47 @@
+function getTradingDates() {
+    let now = new Date();
+    
+    // Convert to GMT time
+    let gmtTime = new Date(now.toISOString());
+    
+    // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    let dayOfWeek = gmtTime.getUTCDay();
+    
+    // Get hours in GMT
+    let gmtHours = gmtTime.getUTCHours();
+
+    // Adjust today's date based on market availability
+    if (gmtHours < 9) {
+        // If it's before 9:00 AM GMT, use yesterday
+        gmtTime.setUTCDate(gmtTime.getUTCDate() - 1);
+        dayOfWeek = gmtTime.getUTCDay();
+    }
+
+    // Handle weekends: If it's Saturday or Sunday, roll back to Friday
+    if (dayOfWeek === 0) { // Sunday → Go back to Friday
+        gmtTime.setUTCDate(gmtTime.getUTCDate() - 2);
+    } else if (dayOfWeek === 6) { // Saturday → Go back to Friday
+        gmtTime.setUTCDate(gmtTime.getUTCDate() - 1);
+    }
+
+    // Set tomorrow’s date (next trading day)
+    let tomorrow = new Date(gmtTime);
+    tomorrow.setUTCDate(gmtTime.getUTCDate() + 1);
+
+    // Skip weekends when determining the next trading day
+    if (tomorrow.getUTCDay() === 6) { // If Saturday, set to Monday
+        tomorrow.setUTCDate(tomorrow.getUTCDate() + 2);
+    } else if (tomorrow.getUTCDay() === 0) { // If Sunday, set to Monday
+        tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    }
+
+    // Format as YYYY-MM-DD
+    let todaysDate = gmtTime.toISOString().split('T')[0];
+    let tomorrowsDate = tomorrow.toISOString().split('T')[0];
+
+    return { todaysDate, tomorrowsDate };
+}
+
 async function fetchOutline(url) {
     try {
         //Fetch data from API
@@ -48,27 +92,13 @@ export async function fetchSnapshots(tickers) {
 }
 
 export async function fetchStock(ticker) {
-    var todaysDate = new Date();
-    var yesterdaysDate = new Date();
-
-    if (todaysDate.getHours() < 10) {
-        todaysDate.setDate(todaysDate.getDate() - 1);
-        yesterdaysDate.setDate(todaysDate.getDate() - 2); // Subtract 1 day
-
-        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
-        yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
-    } else {
-        yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
-
-        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
-        yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
-    }
+    const { todaysDate, tomorrowsDate } = getTradingDates();
     
     
     console.log(ticker);
     console.log(todaysDate);
     console.log(yesterdaysDate);
-    const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&yesterday=${yesterdaysDate}`);
+    const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&tomorrow=${tomorrowsDate}`);
     return response;
 }
 
