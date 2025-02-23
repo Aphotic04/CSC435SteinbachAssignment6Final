@@ -2277,12 +2277,14 @@ img {
 }
 .index #scroll {
   animation: var(--animate-scroll);
+  background-color: var(--color-gray-200);
   white-space: nowrap;
 }
 .index .snapshotElement {
   display: inline-block;
 }
 .snapshotElement, .gainerLoserElement {
+  background-color: var(--color-gray-200);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
