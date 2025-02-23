@@ -24,7 +24,7 @@ anychart.onDocumentReady(async function () {
             
     // Create a data table with loaded data
     var dataTable = anychart.data.table();
-    dataTable.addData(data());
+    dataTable.addData(await data());
 
     // Create a stock chart
     var chart = anychart.stock();
@@ -105,7 +105,7 @@ anychart.onDocumentReady(async function () {
 
             stockFiltered.push(aggArray);
         }
-        console.log(stockFiltered);
+        console.log(stockFiltered)
         return stockFiltered;
     };
 
