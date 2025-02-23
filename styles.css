@@ -110,3 +110,25 @@ h2 {
 .index main {
     @apply col-span-2 grid grid-cols-2 gap-2;
 }
+
+
+
+#stockBody {
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
+}
+
+.stock header {
+    @apply col-span-3;
+}
+
+.stock main {
+    @apply col-start-2;
+}
+
+.stock #companyDesc {
+    @apply col-start-2;
+}
+
+.stock #relatedStocksCont {
+    @apply col-span-2;
+}

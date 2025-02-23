@@ -2360,6 +2360,28 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: calc(var(--spacing) * 2);
 }
+#stockBody {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 4);
+  background-color: var(--color-gray-700);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--tw-leading, var(--text-base--line-height));
+  color: var(--color-white);
+}
+.stock header {
+  grid-column: span 3 / span 3;
+}
+.stock main {
+  grid-column-start: 2;
+}
+.stock #companyDesc {
+  grid-column-start: 2;
+}
+.stock #relatedStocksCont {
+  grid-column: span 2 / span 2;
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);

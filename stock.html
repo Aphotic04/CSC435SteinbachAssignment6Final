@@ -30,14 +30,13 @@ https://www.w3schools.com/howto/howto_js_autocomplete.asp
             }
         </style>
     </head>
-    <body class="stock">
+    <body class="stock" id="stockBody">
         <header>
             <nav><a href="./index.html">⮜</a></nav>
             <div>
                 <input id="txtStock" type="text" name="txtStock" placeholder="Search Stocks">
                 <section id="results"></section>
             </div>
-            
         </header>
         <main>
             <p id="stockDesc"></p>
@@ -47,11 +46,13 @@ https://www.w3schools.com/howto/howto_js_autocomplete.asp
         </main>
         
         <section id="companyDesc"></section>
-        <aside>
+
+        <aside id="relatedStocksCont">
             <h2>Related Stocks</h2>
             <div id="relatedStocks">Loading Related Stocks</div>
         </aside>
-        <aside>
+
+        <aside id="relatedNewsCont">
             <h2>Related News</h2>
             <div id="relatedNews"></div>
         </aside>
