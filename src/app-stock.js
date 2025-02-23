@@ -13,6 +13,19 @@ async function loadUi() {
     return Ui;
 }
 
+const thisStock = sessionStorage.getItem('currStock');
+
+async function handleStockDesc(Api, Ui, name) {
+    const data = await Api.fetchSnapshots(thisStock);
+
+    await Ui.displayStockDesc(data['tickers'][0], name);
+}
+
+const Ui = await loadUi();
+const Api = await loadApi();
+
+await handleStockDesc(Api, Ui, "Apple Inc.");
+
 function formatTimestamp(unixMs) {
     const date = new Date(unixMs);
 
@@ -58,8 +71,6 @@ anychart.onDocumentReady(async function () {
     // force the grouping
     grouping.forced(true);
 
-    const Ui = await loadUi();
-
     await Ui.displayGrouping();
     
     const Event = await loadEvent();
@@ -75,8 +86,7 @@ anychart.onDocumentReady(async function () {
     
     // Create data
     async function data() {
-        const Api = await loadApi();
-        var stockData = await Api.fetchStock(sessionStorage.getItem('currStock'));
+        var stockData = await Api.fetchStock(thisStock);
         stockData = stockData['results'];
 
         var stockFiltered = [];

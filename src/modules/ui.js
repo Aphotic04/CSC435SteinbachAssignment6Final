@@ -127,6 +127,36 @@ export async function displayGrouping() {
     `;
 }
 
+export async function displayStockDesc(data, name) {
+    const stockDesc = document.getElementById('stockDesc');
+    const percent = parseFloat(data['todaysChangePerc'].toFixed(3));
+
+    if (percent >= 0) {
+        direction = "gainers";
+        symbol = '⮝';
+        operator = '+';
+    } else {
+        direction = "losers";
+        symbol = '⮟';
+        operator = '';
+    }
+
+    stockDesc.innerHTML = `
+        <p class="fadedTicker">
+            ${name}
+        </p>
+        <p>
+            <span class='${direction}'>${symbol}</span>
+            ${data['ticker']}
+            <span class='${direction}'>${operator}${parseFloat(data['todaysChangePerc']).toFixed(3)}%</span>
+        </p>
+        <p>
+            <span class='${direction}'>$${operator}${parseFloat(data['todaysChange']).toFixed(3)}</span>
+            $${parseFloat(data['day']['c']).toFixed(3)}
+        </p>
+    `;
+}
+
 
 
 export function autocomplete(inp, arr, arr1) {
