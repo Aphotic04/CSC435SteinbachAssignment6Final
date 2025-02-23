@@ -76,5 +76,5 @@ img {
 }
 
 .stock a {
-    @apply hover:text-gray-700 hover:cursor-pointer;
+    @apply hover:text-gray-500 hover:cursor-pointer;
 }

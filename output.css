@@ -2302,7 +2302,7 @@ img {
   }
   &:hover {
     @media (hover: hover) {
-      color: var(--color-gray-700);
+      color: var(--color-gray-500);
     }
   }
 }
