@@ -121,7 +121,7 @@ anychart.onDocumentReady(async function () {
 });
 
 async function handleRelated() {
-    const data = await Api.fetchAiRelated(thisStock);
+    var data = await Api.fetchAiRelated(thisStock);
 
     data = JSON.parse(data['result']);
 
