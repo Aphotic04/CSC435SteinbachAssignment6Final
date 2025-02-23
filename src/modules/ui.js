@@ -6,6 +6,8 @@ async function loadEvent() {
 export async function displayGainersLosers(data, direction) {
     const container = document.getElementById(direction);
 
+    const Event = await loadEvent();
+    
     var symbol;
     var operator;
 
@@ -21,6 +23,11 @@ export async function displayGainersLosers(data, direction) {
     for (var i = 0; i < 20; i++) {
         const newContainer = document.createElement('li');
         const curr = data[i];
+
+        newContainer.id = curr['ticker'];
+        newContainer.classList.add('gainerLoserElement');
+
+        newContainer.addEventListener('click', Event.clickStock);
 
         newContainer.innerHTML = `
             <p>
@@ -39,6 +46,8 @@ export async function displayGainersLosers(data, direction) {
 
 export async function displaySnapshots(data) {
     const container = document.getElementById('scroll');
+
+    const Event = await loadEvent();
     
     container.innerHTML = '';
 
@@ -51,6 +60,9 @@ export async function displaySnapshots(data) {
         const percent = parseFloat(curr['todaysChangePerc'].toFixed(3));
 
         newContainer.classList.add('scrollElement');
+        newContainer.id = curr['ticker'];
+
+        newContainer.addEventListener('click', Event.clickStock);
 
         if (percent >= 0) {
             direction = "gainers";

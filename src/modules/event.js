@@ -50,3 +50,8 @@ export const debouncedSearchEvent = debounce(stockSearchEvent, 400);
 export function clickNews(link) {
     window.open(link, "_blank");
 }
+
+export function clickStock() {
+    sessionStorage.setItem('currStock', this.id);
+    window.location.assign("./stock.html");
+}

@@ -2282,6 +2282,18 @@
 .index .scrollElement {
   display: inline-block;
 }
+.index .scrollElement, .gainerLoserElement {
+  &:hover {
+    @media (hover: hover) {
+      cursor: pointer;
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-300);
+    }
+  }
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);

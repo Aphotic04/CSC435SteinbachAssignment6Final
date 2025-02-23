@@ -70,3 +70,7 @@
 .index .scrollElement {
     @apply inline-block;
 }
+
+.index .scrollElement, .gainerLoserElement {
+    @apply hover:bg-gray-300 hover:cursor-pointer;
+}
