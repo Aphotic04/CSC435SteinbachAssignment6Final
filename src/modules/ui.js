@@ -202,8 +202,8 @@ export function autocomplete(inp, arr, arr1) {
     }
     }
     /*execute a function when someone clicks in the document:*/
-    document.addEventListener("click", function (e) {
-        const Event = loadEvent();
+    document.addEventListener("click", async function (e) {
+        const Event = await loadEvent();
         closeAllLists(e.target);
 
         Event.clickStockSearch();
