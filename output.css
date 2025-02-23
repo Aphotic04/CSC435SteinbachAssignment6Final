@@ -2214,10 +2214,11 @@ input[type=text] {
   display: block;
   width: calc(1/2 * 100%);
   background-color: var(--color-gray-200);
+  color: var(--color-black);
 }
 input[type=submit] {
   background-color: var(--color-blue-500);
-  color: var(--color-white);
+  color: var(--color-black);
 }
 .autocomplete-items {
   position: absolute;
@@ -2234,7 +2235,7 @@ input[type=submit] {
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
   border-color: var(--color-gray-300);
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   padding: calc(var(--spacing) * 2);
 }
 .autocomplete-items div:hover {
@@ -2242,7 +2243,7 @@ input[type=submit] {
 }
 .autocomplete-active {
   background-color: var(--color-blue-500);
-  color: var(--color-white);
+  color: var(--color-black);
 }
 .gainers {
   color: var(--color-green-500);

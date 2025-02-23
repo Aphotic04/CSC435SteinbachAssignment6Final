@@ -12,22 +12,22 @@ input {
     @apply border-transparent bg-gray-200 p-2 text-base;
 }
 input[type=text] {
-    @apply block mx-auto bg-gray-200 w-1/2;
+    @apply block mx-auto bg-gray-200 w-1/2 text-black;
 }
 input[type=submit] {
-    @apply bg-blue-500 text-white;
+    @apply bg-blue-500 text-black;
 }
 .autocomplete-items {
     @apply absolute border border-gray-300 border-t-0 z-50 w-full;
 }
 .autocomplete-items div {
-    @apply p-2 cursor-pointer bg-white border-b border-gray-300;
+    @apply p-2 cursor-pointer bg-black border-b border-gray-300;
 }
 .autocomplete-items div:hover {
     @apply bg-gray-200;
 }
 .autocomplete-active {
-    @apply bg-blue-500 text-white;
+    @apply bg-blue-500 text-black;
 }
 
 .gainers {
