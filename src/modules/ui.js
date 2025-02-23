@@ -130,6 +130,9 @@ export async function displayGrouping() {
 export async function displayStockDesc(data, name) {
     const stockDesc = document.getElementById('stockDesc');
     const percent = parseFloat(data['todaysChangePerc'].toFixed(3));
+    var symbol;
+    var direction;
+    var operator;
 
     if (percent >= 0) {
         direction = "gainers";
