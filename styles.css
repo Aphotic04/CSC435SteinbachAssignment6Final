@@ -5,10 +5,6 @@
     @apply box-border;
 }
 
-#indexBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
-}
-
 .autocomplete {
     @apply relative inline-block;
 }
@@ -43,11 +39,35 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer text-black my-3;
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3;
 }
 
 img {
-    @apply inline;
+    @apply block bg-gray-300 m-3 rounded-xl;
+}
+
+.newsArticle strong {
+    @apply block col-span-2;
+}
+
+.newsArticle p {
+    @apply col-span-3;
+}
+
+h1 {
+    @apply text-4xl
+}
+
+h2 {
+    @apply block mx-auto text-2xl
+}
+
+.snapshotElement, .gainerLoserElement {
+    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer;
+}
+
+.stock a {
+    @apply hover:text-gray-500 hover:cursor-pointer;
 }
 
 @theme {
@@ -57,6 +77,10 @@ img {
         0% { transform: translateX(0); } 
         100% { transform: translateX(-50%); } 
     }
+}
+
+#indexBody {
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
 }
 
 .index header {
@@ -75,10 +99,6 @@ img {
     @apply col-span-3 mx-auto;
 }
 
-h1 {
-    @apply text-4xl
-}
-
 .index #txtStock {
     @apply col-span-3;
 }
@@ -89,16 +109,4 @@ h1 {
 
 .index main {
     @apply col-span-2 grid grid-cols-2 gap-2;
-}
-
-h2 {
-    @apply block mx-auto text-2xl
-}
-
-.snapshotElement, .gainerLoserElement {
-    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer;
-}
-
-.stock a {
-    @apply hover:text-gray-500 hover:cursor-pointer;
 }

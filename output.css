@@ -2198,16 +2198,6 @@
 * {
   box-sizing: border-box;
 }
-#indexBody {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: calc(var(--spacing) * 4);
-  background-color: var(--color-gray-700);
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: var(--tw-leading, var(--text-base--line-height));
-  color: var(--color-white);
-}
 .autocomplete {
   position: relative;
   display: inline-block;
@@ -2262,8 +2252,9 @@ input[type=submit] {
 }
 .newsArticle {
   margin-block: calc(var(--spacing) * 3);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   background-color: var(--color-gray-500);
-  color: var(--color-black);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2276,40 +2267,21 @@ input[type=submit] {
   }
 }
 img {
-  display: inline;
+  margin: calc(var(--spacing) * 3);
+  display: block;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-gray-300);
 }
-.index header {
+.newsArticle strong {
+  grid-column: span 2 / span 2;
+  display: block;
+}
+.newsArticle p {
   grid-column: span 3 / span 3;
-  overflow: hidden;
-}
-.index #scroll {
-  animation: var(--animate-scroll);
-  background-color: var(--color-gray-950);
-  white-space: nowrap;
-  color: var(--color-white);
-}
-.index .snapshotElement {
-  display: inline-block;
-}
-.index #title {
-  grid-column: span 3 / span 3;
-  margin-inline: auto;
 }
 h1 {
   font-size: var(--text-4xl);
   line-height: var(--tw-leading, var(--text-4xl--line-height));
-}
-.index #txtStock {
-  grid-column: span 3 / span 3;
-}
-.index #results {
-  grid-column: span 3 / span 3;
-}
-.index main {
-  grid-column: span 2 / span 2;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(var(--spacing) * 2);
 }
 h2 {
   margin-inline: auto;
@@ -2342,6 +2314,45 @@ h2 {
       color: var(--color-gray-500);
     }
   }
+}
+#indexBody {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 4);
+  background-color: var(--color-gray-700);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--tw-leading, var(--text-base--line-height));
+  color: var(--color-white);
+}
+.index header {
+  grid-column: span 3 / span 3;
+  overflow: hidden;
+}
+.index #scroll {
+  animation: var(--animate-scroll);
+  background-color: var(--color-gray-950);
+  white-space: nowrap;
+  color: var(--color-white);
+}
+.index .snapshotElement {
+  display: inline-block;
+}
+.index #title {
+  grid-column: span 3 / span 3;
+  margin-inline: auto;
+}
+.index #txtStock {
+  grid-column: span 3 / span 3;
+}
+.index #results {
+  grid-column: span 3 / span 3;
+}
+.index main {
+  grid-column: span 2 / span 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 2);
 }
 @keyframes spin {
   to {
