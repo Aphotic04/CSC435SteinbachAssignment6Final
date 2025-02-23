@@ -8,12 +8,15 @@ export default async function handler(req, res) {
   //Setting const/var for weather data to use in query 
 
   const TEMP_KEY = process.env.AI_KEY; // Securely stored on Vercel
+
+  const aiContent = req.content.content;
+
   //Object of AI request body
   const requestBody = {
     model: "gpt-4",
     messages: [{ 
       role: "user",
-      content: `Please provide me with 20 large and popular companies with stocks in format of [{"ticker":"TCKR"}].` 
+      content: aiContent
     }],
     temperature: 0.7 // Ensures stable responses
   };

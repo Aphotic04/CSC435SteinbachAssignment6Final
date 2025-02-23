@@ -15,27 +15,6 @@ async function loadUi() {
 
 const thisStock = sessionStorage.getItem('currStock');
 
-async function handleStockDesc(Api, Ui, name) {
-    const data = await Api.fetchSnapshots(thisStock);
-
-    await Ui.displayStockDesc(data['tickers'][0], name);
-}
-
-async function handleCompanyDesc(Api, Ui) {
-    const data = await Api.fetchCompanyDesc(thisStock);
-
-    await Ui.displayCompanyDesc(data['results']);
-
-    return data['results']['name'];
-}
-
-const Ui = await loadUi();
-const Api = await loadApi();
-
-const companyName = await handleCompanyDesc(Api, Ui);
-
-await handleStockDesc(Api, Ui, companyName);
-
 function formatTimestamp(unixMs) {
     const date = new Date(unixMs);
 
@@ -47,6 +26,29 @@ function formatTimestamp(unixMs) {
 
     return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
+
+const Ui = await loadUi();
+const Api = await loadApi();
+
+
+async function handleStockDesc(name) {
+    const data = await Api.fetchSnapshots(thisStock);
+
+    await Ui.displayStockDesc(data['tickers'][0], name);
+}
+
+async function handleCompanyDesc() {
+    const data = await Api.fetchCompanyDesc(thisStock);
+
+    await Ui.displayCompanyDesc(data['results']);
+
+    return data['results']['name'];
+}
+
+
+const companyName = await handleCompanyDesc();
+
+await handleStockDesc(companyName);
 
 anychart.onDocumentReady(async function () {
             
@@ -118,3 +120,24 @@ anychart.onDocumentReady(async function () {
 
 });
 
+async function handleRelated() {
+    const data = await Api.fetchAiRelated(thisStock);
+
+    data = JSON.parse(data['result']);
+
+    var dataFiltered = "";
+
+    for (var i = 0; i < data.length; i++) {
+        if (i < data.length - 1) {
+            dataFiltered += data[i].ticker + ",";
+        } else {
+            dataFiltered += data[i].ticker
+        }
+        
+    }
+    const stockData = await Api.fetchSnapshots(dataFiltered);
+
+    await Ui.displaySnapshots(stockData, 'relatedStocks');
+}
+
+await handleRelated();
