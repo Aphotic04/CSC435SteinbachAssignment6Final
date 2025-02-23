@@ -8,6 +8,11 @@ async function loadApi() {
     return Api;
 }
 
+async function loadUi() {
+    const Ui = await import("./modules/ui.js");
+    return Ui;
+}
+
 function formatTimestamp(unixMs) {
     const date = new Date(unixMs);
 
@@ -52,6 +57,10 @@ anychart.onDocumentReady(async function () {
     }]);
     // force the grouping
     grouping.forced(true);
+
+    const Ui = await loadUi();
+
+    await Ui.displayGrouping();
     
     const Event = await loadEvent();
 
