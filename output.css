@@ -2334,7 +2334,6 @@ h2 {
 .index #scroll {
   animation: var(--animate-scroll);
   background-color: var(--color-gray-950);
-  white-space: nowrap;
 }
 .index .snapshotElement {
   display: inline-block;

@@ -88,7 +88,7 @@ h2 {
 }
 
 .index #scroll {
-    @apply animate-scroll whitespace-nowrap bg-gray-950;
+    @apply animate-scroll bg-gray-950;
 }
 
 .index .snapshotElement {
