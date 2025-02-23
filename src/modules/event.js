@@ -39,10 +39,17 @@ async function stockSearchData() {
 }
 
 async function stockSearchEvent() {
-    const filteredData = await stockSearchData();
-    const Ui = await loadUi();
+    const results = document.getElementById('results');
+    if (!/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10) {
+        results.innerHTML = 'Invalid Ticker'
+    } else {
+        results.innerHTML = "";
+        const filteredData = await stockSearchData();
+        const Ui = await loadUi();
+        
+        Ui.autocomplete(document.getElementById("txtStock"), filteredData[0], filteredData[1]);
+    }
     
-    Ui.autocomplete(document.getElementById("txtStock"), filteredData[0], filteredData[1]);
 }
 
 export const debouncedSearchEvent = debounce(stockSearchEvent, 400);
