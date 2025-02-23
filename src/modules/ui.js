@@ -160,6 +160,14 @@ export async function displayStockDesc(data, name) {
     `;
 }
 
+export async function displayCompanyDesc(data) {
+    const companyDesc = document.getElementById('companyDesc');
+
+    companyDesc.innerHTML = `
+        <strong>About ${data['name']}</strong>
+        <p>${data['description']}</p>
+    `;
+}
 
 
 export function autocomplete(inp, arr, arr1) {

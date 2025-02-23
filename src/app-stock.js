@@ -21,10 +21,20 @@ async function handleStockDesc(Api, Ui, name) {
     await Ui.displayStockDesc(data['tickers'][0], name);
 }
 
+async function handleCompanyDesc(Api, Ui) {
+    const data = await Api.fetchCompanyDesc(thisStock);
+
+    await Ui.displayCompanyDesc(data['results']);
+
+    return data['results']['name'];
+}
+
 const Ui = await loadUi();
 const Api = await loadApi();
 
-await handleStockDesc(Api, Ui, "Apple Inc.");
+const companyName = await handleCompanyDesc(Api, Ui);
+
+await handleStockDesc(Api, Ui, companyName);
 
 function formatTimestamp(unixMs) {
     const date = new Date(unixMs);

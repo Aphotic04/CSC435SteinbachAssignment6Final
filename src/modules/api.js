@@ -1,7 +1,7 @@
-export async function fetchStockSearch(ticker) {
+async function fetchOutline(url) {
     try {
         //Fetch data from API
-        const response = await fetch(`../../api/fetch-stock-search.js?ticker=${ticker}`);
+        const response = await fetch(url);
         
         //If response is not ok, throw error
         if (response.status == 500) {
@@ -17,126 +17,48 @@ export async function fetchStockSearch(ticker) {
     } catch (error) { //Catch thrown error
         //Log and display error
         console.error("Error fetching data:", error);
+        return null;
     }
+}
+
+export async function fetchStockSearch(ticker) {
+    const response = await fetchOutline(`../../api/fetch-stock-search.js?ticker=${ticker}`);
+    return response;
 }
 
 export async function fetchAiStocks() {
-    try {
-        //Fetch data from API
-        const response = await fetch(`../../api/fetch-ai-stocks.js`);
-        
-        //If response is not ok, throw error
-        if (response.status == 500) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-
-        //Put data in constant after parsing
-        const data = await response.json();
-
-        //Return data
-        console.log(data);
-        return data;
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-    }
+    const response = await fetchOutline(`../../api/fetch-ai-stocks.js`);
+    return response;
 }
 
 export async function fetchGainersLosers(direction) {
-    try {
-        //Fetch data from API
-        const response = await fetch(`../../api/fetch-gainer-loser.js?direction=${direction}`);
-        
-        //If response is not ok, throw error
-        if (response.status == 500) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-
-        //Put data in constant after parsing
-        const data = await response.json();
-
-        console.log(data);
-        //Return data
-        return(data);
-
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-    }
+    const response = await fetchOutline(`../../api/fetch-gainer-loser.js?direction=${direction}`);
+    return response;
 }
 
 export async function fetchNews() {
-    try {
-        //Fetch data from API
-        const response = await fetch(`../../api/fetch-news-stocks.js`);
-        
-        //If response is not ok, throw error
-        if (response.status == 500) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-
-        //Put data in constant after parsing
-        const data = await response.json();
-
-        console.log(data);
-        //Return data
-        return(data);
-
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-    }
+    const response = await fetchOutline(`../../api/fetch-news-stocks.js`);
+    return response;
 }
 
 export async function fetchSnapshots(tickers) {
-    try {
-        //Fetch data from API
-        const response = await fetch(`../../api/fetch-snapshots.js?tickers=${tickers}`);
-        
-        //If response is not ok, throw error
-        if (response.status == 500) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-
-        //Put data in constant after parsing
-        const data = await response.json();
-
-        console.log(data);
-        //Return data
-        return(data);
-
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-    }
+    const response = await fetchOutline(`../../api/fetch-snapshots.js?tickers=${tickers}`);
+    return response;
 }
 
 export async function fetchStock(ticker) {
-    try {
-        var todaysDate = new Date();
-        var yesterdaysDate = new Date();
-        yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
+    var todaysDate = new Date();
+    var yesterdaysDate = new Date();
+    yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
 
-        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
-        yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
+    todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+    yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
+    
+    const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&yesterday=${yesterdaysDate}`);
+    return response;
+}
 
-        //Fetch data from API
-        const response = await fetch(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&yesterday=${yesterdaysDate}`);
-        
-        //If response is not ok, throw error
-        if (response.status == 500) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-
-        //Put data in constant after parsing
-        const data = await response.json();
-
-        console.log(data);
-        //Return data
-        return(data);
-
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-    }
+export async function fetchCompanyDesc(ticker) {
+    const response = await fetchOutline(`../../api/fetch-company-desc.js?ticker=${ticker}`);
+    return response;
 }
