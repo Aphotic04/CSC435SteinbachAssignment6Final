@@ -55,6 +55,14 @@ async function handleScrollBar(Api, Ui) {
     await Ui.displaySnapshots(stockData['tickers']);
 }
 
+const Events = await loadEvent();
+
+document.getElementById('txtStock').addEventListener('input', Events.debouncedSearchEvent);
+document.getElementById('txtStock').addEventListener('keydown', async (e) => {
+    if(e.key === 'Enter') {
+        await Events.clickStockSearch();
+    }
+});
 
 await handleGainerLoser(Api, Ui);
 
@@ -62,6 +70,5 @@ await handleNews(Api, Ui);
 
 await handleScrollBar(Api, Ui);
 
-const Events = await loadEvent();
 
-document.getElementById('txtStock').addEventListener('input', Events.debouncedSearchEvent);
+
