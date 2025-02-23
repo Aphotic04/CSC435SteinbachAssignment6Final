@@ -29,6 +29,14 @@ function formatTimestamp(unixMs) {
 
 const Ui = await loadUi();
 const Api = await loadApi();
+const Events = await loadEvent();
+
+document.getElementById('txtStock').addEventListener('input', Events.debouncedSearchEvent);
+document.getElementById('txtStock').addEventListener('keydown', async (e) => {
+    if(e.key === 'Enter') {
+        await Events.clickStockSearch();
+    }
+});
 
 const companyName = await handleCompanyDesc();
 
@@ -69,10 +77,9 @@ anychart.onDocumentReady(async function () {
 
     await Ui.displayGrouping();
     
-    const Event = await loadEvent();
 
     document.getElementById('optGrouping').addEventListener('change', async (e) => {
-        await Event.changeGrouping(e.target.value, grouping, chart);
+        await Events.changeGrouping(e.target.value, grouping, chart);
     });
     
     // Set the initial gap
