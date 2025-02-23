@@ -6,7 +6,7 @@
 }
 
 .index body {
-    @apply font-sans text-base;
+    @apply font-sans text-base grid grid-cols-2 gap-4;
 }
 
 .autocomplete {
@@ -60,7 +60,7 @@ img {
 }
 
 .index header {
-    @apply overflow-hidden;
+    @apply overflow-hidden col-span-2;
 }
 
 .index #scroll {
@@ -69,6 +69,18 @@ img {
 
 .index .snapshotElement {
     @apply inline-block;
+}
+
+.index #title {
+    @apply col-span-2;
+}
+
+.index #txtStock {
+    @apply col-span-2;
+}
+
+.index #results {
+    @apply col-span-2;
 }
 
 .snapshotElement, .gainerLoserElement {
