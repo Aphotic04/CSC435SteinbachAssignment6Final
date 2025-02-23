@@ -6,7 +6,7 @@
 }
 
 #indexBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base ;
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-400 text-white;
 }
 
 .autocomplete {
@@ -72,7 +72,11 @@ img {
 }
 
 .index #title {
-    @apply col-span-3;
+    @apply col-span-3 mx-auto;
+}
+
+h1 {
+    @apply text-4xl
 }
 
 .index #txtStock {
@@ -85,6 +89,10 @@ img {
 
 .index main {
     @apply col-span-2 grid grid-cols-2 gap-2;
+}
+
+div h3 {
+    @apply block mx-auto text-2xl
 }
 
 .snapshotElement, .gainerLoserElement {
