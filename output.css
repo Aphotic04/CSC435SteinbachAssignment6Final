@@ -2202,7 +2202,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: calc(var(--spacing) * 4);
-  background-color: var(--color-gray-400);
+  background-color: var(--color-gray-600);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
@@ -2261,7 +2261,6 @@ input[type=submit] {
   color: var(--color-red-600);
 }
 .newsArticle {
-  width: calc(1/4 * 100%);
   background-color: var(--color-gray-400);
   &:hover {
     @media (hover: hover) {
@@ -2310,7 +2309,7 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: calc(var(--spacing) * 2);
 }
-div h3 {
+h2 {
   margin-inline: auto;
   display: block;
   font-size: var(--text-2xl);
