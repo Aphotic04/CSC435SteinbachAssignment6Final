@@ -113,7 +113,6 @@ anychart.onDocumentReady(async function () {
 
             stockFiltered.push(aggArray);
         }
-        console.log(stockFiltered)
         return stockFiltered;
     };
 

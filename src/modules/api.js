@@ -94,10 +94,6 @@ export async function fetchSnapshots(tickers) {
 export async function fetchStock(ticker) {
     const { todaysDate, tomorrowsDate } = getTradingDates();
     
-    
-    console.log(ticker);
-    console.log(todaysDate);
-    console.log(tomorrowsDate);
     const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&tomorrow=${tomorrowsDate}`);
     return response;
 }
