@@ -92,7 +92,7 @@ h1 {
 }
 
 .index aside {
-    @apply bg-grey-700;
+    @apply bg-grey-600;
 }
 
 h2 {
