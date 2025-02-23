@@ -6,7 +6,7 @@
 }
 
 #indexBody {
-    @apply grid grid-cols-2 gap-4 font-sans text-base ;
+    @apply grid grid-cols-3 gap-4 font-sans text-base ;
 }
 
 .autocomplete {
@@ -60,7 +60,7 @@ img {
 }
 
 .index header {
-    @apply overflow-hidden col-span-2;
+    @apply overflow-hidden col-span-3;
 }
 
 .index #scroll {
@@ -72,15 +72,19 @@ img {
 }
 
 .index #title {
-    @apply col-span-2;
+    @apply col-span-3;
 }
 
 .index #txtStock {
-    @apply col-span-2;
+    @apply col-span-3;
 }
 
 .index #results {
-    @apply col-span-2;
+    @apply col-span-3;
+}
+
+.index main {
+    @apply col-span-2 grid grid-cols-2 gap-2;
 }
 
 .snapshotElement, .gainerLoserElement {

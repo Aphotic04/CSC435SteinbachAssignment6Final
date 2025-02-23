@@ -2200,7 +2200,7 @@
 }
 #indexBody {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: calc(var(--spacing) * 4);
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -2276,7 +2276,7 @@ img {
   display: inline;
 }
 .index header {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
   overflow: hidden;
 }
 .index #scroll {
@@ -2289,13 +2289,19 @@ img {
   display: inline-block;
 }
 .index #title {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
 }
 .index #txtStock {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
 }
 .index #results {
+  grid-column: span 3 / span 3;
+}
+.index main {
   grid-column: span 2 / span 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 2);
 }
 .snapshotElement, .gainerLoserElement {
   background-color: var(--color-gray-950);
