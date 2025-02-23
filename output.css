@@ -2255,6 +2255,7 @@ input[type=submit] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
   border-radius: var(--radius-xl);
   background-color: var(--color-gray-500);
   &:hover {
