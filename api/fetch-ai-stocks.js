@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const TEMP_KEY = process.env.AI_KEY; // Securely stored on Vercel
 
-  const aiContent = decodeURIComponent(req.content.content);
+  const aiContent = decodeURIComponent(req.query.content);
 
   //Object of AI request body
   const requestBody = {
