@@ -146,11 +146,11 @@ export async function displayStockDesc(data, name) {
 
     stockDesc.innerHTML = `
         <p class="fadedTicker">
-            ${name}
+            ${data['ticker']}
         </p>
         <p>
             <span class='${direction}'>${symbol}</span>
-            ${data['ticker']}
+            ${name}
             <span class='${direction}'>${operator}${parseFloat(data['todaysChangePerc']).toFixed(3)}%</span>
         </p>
         <p>
