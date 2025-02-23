@@ -72,12 +72,16 @@ export async function fetchStockSearch(ticker) {
 }
 
 export async function fetchAiStocks() {
-    const response = await fetchOutline(`../../api/fetch-ai-stocks.js?content=Please provide me with 20 large and popular companies with stocks in format of [{"ticker":"TCKR"}].`);
+    const content = `Please provide me with 20 large and popular companies with stocks in format of [{"ticker":"TCKR"}].`;
+    const encodedContent = encodeURIComponent(content);
+    const response = await fetchOutline(`../../api/fetch-ai-stocks.js?content=${encodedContent}`);
     return response;
 }
 
 export async function fetchAiRelated(ticker) {
-    const response = await fetchOutline(`../../api/fetch-ai-stocks.js?content=Please provide me with 10 companies similar or related to ${ticker} with stocks in format of [{"ticker":"TCKR"}].`);
+    const content = `Please provide me with 10 companies similar or related to ${ticker} with stocks in format of [{"ticker":"TCKR"}].`;
+    const encodedContent = encodeURIComponent(content);
+    const response = await fetchOutline(`../../api/fetch-ai-stocks.js?content=${encodedContent}`);
     return response;
 }
 
