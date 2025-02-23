@@ -85,7 +85,7 @@ anychart.onDocumentReady(async function () {
     scale.minimumGap({intervalsCount: 1, unitType: 'min', unitCount: 1});
 
     const Api = await loadApi();
-    const stockData = await fetchStock(sessionStorage.getItem('currStock'));
+    const stockData = await Api.fetchStock(sessionStorage.getItem('currStock'));
     stockData = stockData['results'];
 
     var stockFiltered = [];
