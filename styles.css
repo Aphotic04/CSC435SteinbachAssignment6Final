@@ -64,7 +64,7 @@ img {
 }
 
 .index #scroll {
-    @apply animate-scroll whitespace-nowrap bg-gray-200;
+    @apply animate-scroll whitespace-nowrap bg-gray-950 text-white;
 }
 
 .index .snapshotElement {
@@ -72,7 +72,7 @@ img {
 }
 
 .snapshotElement, .gainerLoserElement {
-    @apply bg-gray-200 hover:bg-gray-300 hover:cursor-pointer;
+    @apply bg-gray-950 text-white hover:bg-gray-700 hover:cursor-pointer;
 }
 
 .stock a {

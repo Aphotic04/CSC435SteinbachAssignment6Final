@@ -2277,14 +2277,16 @@ img {
 }
 .index #scroll {
   animation: var(--animate-scroll);
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-950);
   white-space: nowrap;
+  color: var(--color-white);
 }
 .index .snapshotElement {
   display: inline-block;
 }
 .snapshotElement, .gainerLoserElement {
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-950);
+  color: var(--color-white);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2292,7 +2294,7 @@ img {
   }
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-300);
+      background-color: var(--color-gray-700);
     }
   }
 }
