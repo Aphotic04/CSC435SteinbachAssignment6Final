@@ -5,8 +5,8 @@
     @apply box-border;
 }
 
-body .index{
-    @apply font-sans text-base grid grid-cols-2 gap-4;
+.index body {
+    @apply grid grid-cols-2 gap-4 font-sans text-base ;
 }
 
 .autocomplete {
