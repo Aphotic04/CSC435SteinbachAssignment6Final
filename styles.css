@@ -34,11 +34,11 @@
     @apply bg-blue-500 text-white;
 }
 
-.index .gainers {
+.gainers {
     @apply text-green-600;
 }
 
-.index .losers {
+.losers {
     @apply text-red-600;
 }
 
