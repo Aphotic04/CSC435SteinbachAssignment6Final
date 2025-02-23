@@ -5,7 +5,7 @@
     @apply box-border;
 }
 
-.index body {
+#indexBody {
     @apply grid grid-cols-2 gap-4 font-sans text-base ;
 }
 
