@@ -39,7 +39,10 @@ async function stockSearchData() {
 }
 
 async function stockSearchEvent() {
+    const searchBar = document.getElementById('txtStock');
     const results = document.getElementById('results');
+    const searchValue = searchBar.value;
+    
     if (!/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10) {
         results.innerHTML = 'Invalid Ticker'
     } else {
