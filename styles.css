@@ -92,7 +92,7 @@ h2 {
 }
 
 .index #scroll .snapshotElement {
-    @apply inline-block;
+    @apply inline;
 }
 
 

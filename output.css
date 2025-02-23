@@ -2342,7 +2342,7 @@ h2 {
   white-space: nowrap;
 }
 .index #scroll .snapshotElement {
-  display: inline-block;
+  display: inline;
 }
 .index #title {
   grid-column: span 3 / span 3;
