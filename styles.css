@@ -92,7 +92,7 @@ h1 {
 }
 
 .index article {
-    @apply bg-grey-600;
+    @apply bg-gray-600;
 }
 
 h2 {

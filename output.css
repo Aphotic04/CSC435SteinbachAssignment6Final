@@ -2262,8 +2262,8 @@ input[type=submit] {
 }
 .newsArticle {
   margin-block: calc(var(--spacing) * 3);
-  background-color: var(--color-gray-800);
-  color: var(--color-white);
+  background-color: var(--color-gray-700);
+  color: var(--color-black);
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
@@ -2271,7 +2271,7 @@ input[type=submit] {
   }
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-gray-700);
+      background-color: var(--color-gray-500);
     }
   }
 }
@@ -2310,6 +2310,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: calc(var(--spacing) * 2);
+}
+.index article {
+  background-color: var(--color-gray-600);
 }
 h2 {
   margin-inline: auto;
