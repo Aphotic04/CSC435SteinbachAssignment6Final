@@ -95,8 +95,6 @@ h2 {
     @apply inline-block;
 }
 
-
-
 .index #title {
     @apply col-span-3 mx-auto;
 }
@@ -122,15 +120,21 @@ h2 {
 }
 
 .stock header {
-    @apply col-span-3;
+    @apply col-span-3 grid grid-cols-3;
 }
 
+.s
+
 .stock main {
-    @apply col-span-3 w-1/2;
+    @apply col-span-3 w-1/2 h-80 mx-auto;
+}
+
+.stock select {
+    @apply bg-gray-800;
 }
 
 .stock #companyDesc {
-    @apply col-span-3 w-1/2;
+    @apply col-span-3 w-1/2 mx-auto;
 }
 
 .stock #relatedStocksCont {

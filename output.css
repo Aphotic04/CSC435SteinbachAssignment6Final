@@ -2372,13 +2372,21 @@ h2 {
 }
 .stock header {
   grid-column: span 3 / span 3;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.stock main {
+.s .stock main {
   grid-column: span 3 / span 3;
+  margin-inline: auto;
+  height: calc(var(--spacing) * 80);
   width: calc(1/2 * 100%);
+}
+.stock select {
+  background-color: var(--color-gray-800);
 }
 .stock #companyDesc {
   grid-column: span 3 / span 3;
+  margin-inline: auto;
   width: calc(1/2 * 100%);
 }
 .stock #relatedStocksCont {
