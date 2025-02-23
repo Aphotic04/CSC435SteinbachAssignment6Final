@@ -50,11 +50,24 @@ export async function fetchSnapshots(tickers) {
 export async function fetchStock(ticker) {
     var todaysDate = new Date();
     var yesterdaysDate = new Date();
-    yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
 
-    todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
-    yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
+    if (todaysDate.getHours() < 10) {
+        todaysDate.setDate(todaysDate.getDate() - 1);
+        yesterdaysDate.setDate(todaysDate.getDate() - 2); // Subtract 1 day
+
+        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+        yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
+    } else {
+        yesterdaysDate.setDate(todaysDate.getDate() - 1); // Subtract 1 day
+
+        todaysDate = todaysDate.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+        yesterdaysDate = yesterdaysDate.toLocaleDateString('en-CA');
+    }
     
+    
+    console.log(ticker);
+    console.log(todaysDate);
+    console.log(yesterdaysDate);
     const response = await fetchOutline(`../../api/fetch-stock.js?ticker=${ticker}&today=${todaysDate}&yesterday=${yesterdaysDate}`);
     return response;
 }
