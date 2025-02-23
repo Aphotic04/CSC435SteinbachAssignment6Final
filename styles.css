@@ -39,11 +39,11 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 rounded-xl;
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 grid-rows-2 rounded-xl;
 }
 
 img {
-    @apply block bg-gray-300 m-3 rounded-xl text-black;
+    @apply block bg-gray-300 m-3 rounded-xl text-black row-span-2;
 }
 
 .newsArticle strong {
@@ -51,7 +51,7 @@ img {
 }
 
 .newsArticle p {
-    @apply col-span-3;
+    @apply col-span-2;
 }
 
 h1 {
