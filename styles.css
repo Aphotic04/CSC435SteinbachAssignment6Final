@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-
+/*npx @tailwindcss/cli -i ./styles.css -o ./output.css --watch*/
  * {
     @apply box-border;
 }
@@ -67,10 +67,10 @@
     @apply animate-scroll whitespace-nowrap;
 }
 
-.index .scrollElement {
+.index .snapshotElement {
     @apply inline-block;
 }
 
-.index .scrollElement, .gainerLoserElement {
+.snapshotElement, .gainerLoserElement {
     @apply hover:bg-gray-300 hover:cursor-pointer;
 }

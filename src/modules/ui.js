@@ -59,7 +59,7 @@ export async function displaySnapshots(data, elementId) {
         const curr = data[i];
         const percent = parseFloat(curr['todaysChangePerc'].toFixed(3));
 
-        newContainer.classList.add('scrollElement');
+        newContainer.classList.add('snapshotElement');
         newContainer.id = curr['ticker'];
 
         newContainer.addEventListener('click', Event.clickStock);

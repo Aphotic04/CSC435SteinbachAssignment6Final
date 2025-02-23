@@ -2279,10 +2279,10 @@
   animation: var(--animate-scroll);
   white-space: nowrap;
 }
-.index .scrollElement {
+.index .snapshotElement {
   display: inline-block;
 }
-.index .scrollElement, .gainerLoserElement {
+.snapshotElement, .gainerLoserElement {
   &:hover {
     @media (hover: hover) {
       cursor: pointer;
