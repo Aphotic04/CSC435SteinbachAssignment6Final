@@ -104,7 +104,7 @@ anychart.onDocumentReady(async function () {
     }
     // Create data
     function data() {
-        return aggArray;
+        return stockFiltered;
     };
 
 });
