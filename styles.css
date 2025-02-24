@@ -12,7 +12,7 @@ input {
     @apply border-transparent bg-gray-200 p-2 text-base;
 }
 input[type=text] {
-    @apply block mx-auto bg-gray-200 w-1/2 text-black;
+    @apply block mx-auto bg-gray-200 text-black;
 }
 input[type=submit] {
     @apply bg-blue-500 text-black;
@@ -100,7 +100,7 @@ h2 {
 }
 
 .index #txtStock {
-    @apply col-span-3;
+    @apply col-span-3 w-1/2;
 }
 
 .index #results {
@@ -126,11 +126,11 @@ h2 {
 .s
 
 .stock main {
-    @apply block col-span-3 w-1/2 mx-auto;
+    @apply col-span-2 mx-auto;
 }
 
 .stock #container {
-    @apply w-2/2 h-200;
+    @apply w-2/2 h-170;
 }
 
 .stock select {

@@ -2212,7 +2212,6 @@ input {
 input[type=text] {
   margin-inline: auto;
   display: block;
-  width: calc(1/2 * 100%);
   background-color: var(--color-gray-200);
   color: var(--color-black);
 }
@@ -2350,6 +2349,7 @@ h2 {
 }
 .index #txtStock {
   grid-column: span 3 / span 3;
+  width: calc(1/2 * 100%);
 }
 .index #results {
   grid-column: span 3 / span 3;
@@ -2376,13 +2376,11 @@ h2 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .s .stock main {
-  grid-column: span 3 / span 3;
+  grid-column: span 2 / span 2;
   margin-inline: auto;
-  display: block;
-  width: calc(1/2 * 100%);
 }
 .stock #container {
-  height: calc(var(--spacing) * 200);
+  height: calc(var(--spacing) * 170);
   width: calc(2/2 * 100%);
 }
 .stock select {
