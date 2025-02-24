@@ -17,7 +17,7 @@ input[type=submit] {
     @apply bg-blue-500 text-black;
 }
 .autocomplete-items {
-    @apply absolute border border-gray-300 border-t-0 z-50 w-1/3;
+    @apply absolute border border-gray-300 border-t-0 z-50;
 }
 .autocomplete-items div {
     @apply p-2 cursor-pointer bg-white text-black border-b border-gray-300;
@@ -102,11 +102,11 @@ h2 {
     @apply col-span-3 w-1/2 mx-auto;
 }
 
-.index #txtStock{
+.index #txtStock, .index #results {
     @apply w-full;
 }
 
-.index #results {
+.index .autocomplete-items {
     @apply w-1/2;
 }
 
@@ -124,6 +124,10 @@ h2 {
 
 .stock header {
     @apply col-span-3 grid grid-cols-3;
+}
+
+.stock .autocomplete-items {
+    @apply w-1/3;
 }
 
 .stock a {
