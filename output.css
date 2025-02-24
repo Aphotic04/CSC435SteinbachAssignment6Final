@@ -2221,7 +2221,6 @@ input[type=submit] {
 .autocomplete-items {
   position: absolute;
   z-index: 50;
-  width: 100%;
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-top-style: var(--tw-border-style);
