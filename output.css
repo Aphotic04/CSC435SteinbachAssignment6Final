@@ -2375,10 +2375,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.stock header div {
-  grid-column: span 2 / span 2;
-}
-.stock #txtStock {
+.stock #txtStock, .stock #results {
   width: 100%;
 }
 .stock main {
