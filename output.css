@@ -2436,6 +2436,19 @@ h2 {
   background-color: var(--color-gray-800);
   color: var(--color-white);
 }
+.login button {
+  background-color: var(--color-gray-700);
+  &:hover {
+    @media (hover: hover) {
+      cursor: pointer;
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-gray-800);
+    }
+  }
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);

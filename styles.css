@@ -177,3 +177,7 @@ h2 {
 .login input {
     @apply block bg-gray-800 text-white m-4;
 }
+
+.login button {
+    @apply bg-gray-700 hover:bg-gray-800 hover:cursor-pointer;
+}
