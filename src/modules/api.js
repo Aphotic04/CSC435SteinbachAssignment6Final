@@ -49,7 +49,7 @@ async function fetchOutline(url) {
             method: "GET",
             credentials: "include"  // Ensures cookie is sent
         });
-        
+        console.log(response);
         //If response is not ok, throw error
         if (response.status == 500) {
             throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
