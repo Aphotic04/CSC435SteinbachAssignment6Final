@@ -10,7 +10,7 @@ document.getElementById('submit').addEventListener('click',async (e) => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        const result = await login(username, password);
+        const result = await Api.login(username, password);
         console.log('Login successful:', result);
         
         // Redirect or update UI on success
