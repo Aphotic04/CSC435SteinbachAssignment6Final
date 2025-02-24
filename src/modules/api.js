@@ -71,28 +71,29 @@ async function fetchOutline(url) {
 
 export async function login(username, password) {
     try {
-        // Use absolute path for API route, remove .js extension
+        console.log('Attempting login for:', username);
+
         const response = await fetch("/api/login", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json"
             },
-            credentials: "include",  // Sends cookies securely
+            credentials: "include",
             body: JSON.stringify({ username, password })
         });
         
-        // Handle all non-200 responses
+        const data = await response.json();
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || `HTTP Error: ${response.status}`);
+            throw new Error(data.error || `HTTP Error: ${response.status}`);
         }
 
-        const data = await response.json();
+        console.log('Login response:', data);
         return data;
 
     } catch (error) {
         console.error("Login error:", error);
-        throw error; // Re-throw to handle in the UI
+        throw error;
     }
 }
 
