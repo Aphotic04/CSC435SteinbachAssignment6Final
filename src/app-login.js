@@ -5,6 +5,7 @@ async function loadApi() {
 
 document.getElementById('submit').addEventListener('click',async (e) => {
     e.preventDefault();
+    const Api = await loadApi();
 
     try {
         const username = document.getElementById('username').value;
