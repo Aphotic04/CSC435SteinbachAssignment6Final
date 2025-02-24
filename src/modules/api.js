@@ -71,33 +71,28 @@ async function fetchOutline(url) {
 
 export async function login(username, password) {
     try {
-        //Fetch data from API
-        const response = await fetch("../../api/login.js", {
+        // Use absolute path for API route, remove .js extension
+        const response = await fetch("/api/login", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json"
+            },
             credentials: "include",  // Sends cookies securely
             body: JSON.stringify({ username, password })
         });
         
-        //If response is not ok, throw error
-        if (response.status == 405) {
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
-        }
-        else if (response.status == 401){
-            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
+        // Handle all non-200 responses
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || `HTTP Error: ${response.status}`);
         }
 
-        //Put data in constant after parsing
         const data = await response.json();
+        return data;
 
-        console.log(data);
-        //Return data
-        return(data);
-
-    } catch (error) { //Catch thrown error
-        //Log and display error
-        console.error("Error fetching data:", error);
-        return null;
+    } catch (error) {
+        console.error("Login error:", error);
+        throw error; // Re-throw to handle in the UI
     }
 }
 
