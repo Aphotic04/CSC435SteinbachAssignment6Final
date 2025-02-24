@@ -15,7 +15,7 @@ document.getElementById('submit').addEventListener('click',async (e) => {
         console.log('Login successful:', result);
         
         // Redirect or update UI on success
-        window.location.href = '/dashboard';
+        window.location.href = '/index';
     } catch (error) {
         console.error('Login failed:', error.message);
         // Show error to user
