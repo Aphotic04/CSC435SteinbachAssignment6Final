@@ -2422,14 +2422,19 @@ h2 {
   color: var(--color-white);
 }
 .login main {
+  margin-inline: auto;
   height: fit-content;
   width: fit-content;
+  border-radius: var(--radius-xl);
   background-color: var(--color-gray-600);
-  padding: calc(var(--spacing) * 5);
+  padding: calc(var(--spacing) * 9);
   text-align: center;
 }
 .login input {
+  margin: calc(var(--spacing) * 4);
+  display: block;
   background-color: var(--color-gray-800);
+  color: var(--color-white);
 }
 @keyframes spin {
   to {

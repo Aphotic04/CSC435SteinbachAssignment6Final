@@ -171,9 +171,9 @@ h2 {
 }
 
 .login main {
-    @apply bg-gray-600 text-center h-fit w-fit p-5;
+    @apply bg-gray-600 text-center h-fit w-fit p-9 mx-auto rounded-xl;
 }
 
 .login input {
-    @apply bg-gray-800;
+    @apply block bg-gray-800 text-white m-4;
 }
