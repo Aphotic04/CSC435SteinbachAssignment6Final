@@ -1,26 +1,35 @@
 <!--
 Ty Steinbach
 CSC 435
-Created: 01-22-2025
-Last Edit: 01-22-2025
+Created: 02-14-2025
+Last Edit: 02-22-2025
 
 Deliverables: 
-Code implementing a task list that is editable
-
-API Sources:
-https://polygon.io/
-https://gnews.io/
-
+A final project meeting requirements
 -->
 <!DOCTYPE html>
 <html id="html" lang="en" class="h-3/3">
     <head>
         <meta charset="utf-8">
-        <title>Task List</title>
+        <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <meta name="description" content="Stock Login">
+        <link href="./output.css" rel="stylesheet">
+        <link href="src/graph-css/anychart-ui.min.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-        
+    <body class="login" id="loginBody">
+        <main>
+            <h1>Login</h1>
+            <!--Login input fields-->
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
+
+            <button type="submit" id="submit">Submit</button>
+
+            <!--Error log-->
+            <div id="loginError"></div>
+        </main>
     </body>
+    <script src="./src/app-login.js" type="module"></script>
+
 </html>

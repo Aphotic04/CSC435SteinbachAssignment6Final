@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*Apply to All*/
+/*Make all box-border*/
+* {
+    @apply box-border;
+}
+/*Search bar styles*/
+.autocomplete {
+    @apply relative inline-block;
+}
+input {
+    @apply border-transparent bg-gray-200 p-2 text-base;
+}
+input[type=text] {
+    @apply block bg-gray-200 text-black;
+}
+input[type=submit] {
+    @apply bg-blue-500 text-black;
+}
+.autocomplete-items {
+    @apply absolute border border-gray-300 border-t-0 z-50;
+}
+.autocomplete-items div {
+    @apply p-2 cursor-pointer bg-white text-black border-b border-gray-300;
+}
+.autocomplete-items div:hover {
+    @apply bg-gray-300;
+}
+.autocomplete-active {
+    @apply bg-blue-500 text-black;
+}
+/*Gainer/loser color styles*/
+.gainers {
+    @apply text-green-500;
+}
+.losers {
+    @apply text-red-500;
+}
+/*News article styles*/
+.newsArticle {
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 grid-rows-2 rounded-xl items-center max-sm:grid-cols-2 max-sm:grid-rows-3;
+}
+img {
+    @apply block bg-gray-300 m-3 rounded-xl text-black row-span-2 max-sm:row-span-1;
+}
+.newsArticle strong {
+    @apply block col-span-2;
+}
+.newsArticle p {
+    @apply col-span-2;
+}
+/*Header styles*/
+h1 {
+    @apply text-4xl
+}
+h2 {
+    @apply block mx-auto text-2xl
+}
+/*Snapshot styles (Scroll bar/gainer/loser/related stocks)*/
+.snapshotElement{
+    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer p-3 my-auto;
+}
+/*Custom animation*/
+@theme {
+    --animate-scroll: ticker-scroll 250s linear infinite; 
+    /* Scrolling Animation */
+    @keyframes ticker-scroll {
+        0% { transform: translateX(0); } 
+        100% { transform: translateX(-50%); } 
+    }
+}
+
+
+
+
+/*Apply to search.html*/
+/*Body styling with graph*/
+#indexBody {
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white max-2xl:grid-cols-1;
+}
+/*Header styles*/
+.index header {
+    @apply overflow-hidden col-span-3 max-2xl:col-span-1;
+}
+.index #scroll {
+    @apply animate-scroll whitespace-nowrap bg-gray-950;
+}
+.index #scroll .snapshotElement, .index #scroll .snapshotElement p {
+    @apply inline-block;
+}
+/*Title style*/
+.index #title {
+    @apply col-span-3 mx-auto max-2xl:col-span-1;
+}
+/*Search bar styles*/
+.index #search {
+    @apply col-span-3 w-1/2 mx-auto max-2xl:col-span-1;
+}
+.index #txtStock, .index #results {
+    @apply w-full;
+}
+.index .autocomplete-items {
+    @apply w-1/2;
+}
+/*Gainer/loser styles*/
+.index main {
+    @apply col-span-2 grid grid-cols-2 gap-2 max-2xl:col-span-1;
+}
+
+
+
+
+/*Apply to stock.html*/
+/*Body styling with grgaph*/
+#stockBody {
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white max-2xl:grid-cols-1;
+}
+/*Header styles*/
+.stock header {
+    @apply col-span-3 grid grid-cols-3 max-2xl:col-span-1;
+}
+.stock .autocomplete-items {
+    @apply w-1/3;
+}
+.stock #txtStock, .stock #results {
+    @apply w-full;
+}
+.stock a {
+    @apply text-3xl hover:text-gray-500 hover:cursor-pointer;
+}
+/*Main styles*/
+.stock main {
+    @apply col-span-3 mx-auto w-2/3 max-2xl:col-span-1;
+}
+.stock #stockDesc {
+    @apply text-xl;
+}
+.stock #container {
+    @apply h-170;
+}
+.stock main div {
+    @apply text-center;
+}
+.stock select {
+    @apply bg-gray-800;
+}
+/*Company desc styles*/
+.stock #companyDesc {
+    @apply col-span-3 w-1/2 mx-auto max-2xl:col-span-1;
+}
+/*Related stocks styles*/
+.stock #relatedStocksCont {
+    @apply col-span-2 max-2xl:col-span-1;
+}
+
+
+
+
+/*Apply to index.html*/
+#loginBody {
+    @apply font-sans text-base bg-gray-700 text-white h-2/2;
+}
+.login main {
+    @apply bg-gray-600 text-center h-fit w-fit p-9 mx-auto rounded-xl;
+}
+.login input {
+    @apply block bg-gray-800 text-white m-4;
+}
+.login button {
+    @apply bg-gray-900 p-3 rounded-xl hover:bg-gray-700 hover:cursor-pointer;
+}

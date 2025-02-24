@@ -1,0 +1,63 @@
+<!--
+Ty Steinbach
+CSC 435
+Created: 02-14-2025
+Last Edit: 02-22-2025
+
+Deliverables: 
+A final project meeting requirements
+
+API Sources:
+https://polygon.io/
+
+Sources:
+https://www.w3schools.com/howto/howto_js_autocomplete.asp
+-->
+<!DOCTYPE html>
+<html id="html" lang="en" class="h-3/3">
+    <head>
+        <meta charset="utf-8">
+        <title>Stock Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stock Search">
+        <link href="./output.css" rel="stylesheet">
+    </head>
+    <body class="index" id="indexBody">
+        <!--Scrolling stocks-->
+        <header>
+            <div id="scroll">Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading </div>
+        </header>
+
+        <!--Page Title-->
+        <div id="title">
+            <h1>Stock Search</h1>
+        </div>
+        
+        <!--Search Bar-->
+        <div id="search">
+            <input id="txtStock" type="text" name="txtStock" placeholder="Search Stocks">
+            <section id="results"></section>
+        </div>
+
+        <!--Top Gainers/Losers Snapshots-->
+        <main>
+            <div id="gainerContainer">
+                <h2>Top Gainers</h3>
+                <ul id="gainers"></ul>
+            </div>
+            <div id="loserContainer">
+                <h2>Top Losers</h3>
+                <ul id="losers"></ul>
+            </div>
+        </main>
+
+        <!--Finance News-->
+        <aside>
+            <h2>Finance News</h2>
+            <article id="news">No news at this time</article>
+        </aside>
+
+    </body>
+
+    <script src="./src/app.js" type="module"></script>
+</html>

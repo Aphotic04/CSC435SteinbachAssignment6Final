@@ -1,0 +1,70 @@
+<!--
+Ty Steinbach
+CSC 435
+Created: 02-14-2025
+Last Edit: 02-22-2025
+
+Deliverables: 
+A final project meeting requirements
+
+API Sources:
+https://polygon.io/
+
+Sources:
+https://playground.anychart.com/bweYfhS4/1
+https://www.w3schools.com/howto/howto_js_autocomplete.asp
+-->
+<!DOCTYPE html>
+<html id="html" lang="en" class="h-3/3">
+    <head>
+        <meta charset="utf-8">
+        <title>Stock Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stock Aggregate Graph">
+        <link href="./output.css" rel="stylesheet">
+        <link href="src/graph-css/anychart-ui.min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="stock" id="stockBody">
+        <!--Home nav and search bar-->
+        <header>
+            <nav><a href="./search.html">⮜ Home</a></nav>
+            <div>
+                <input id="txtStock" type="text" name="txtStock" placeholder="Search Stocks">
+                <section id="results"></section>
+            </div>
+        </header>
+
+        <!--Stock info and aggregate graph-->
+        <main>
+            <p id="stockDesc"></p>
+            <div id="container"></div>
+            <p>Stocks are 15 minutes delayed and are in GMT time</p>
+            <div>
+                <label for="optGrouping">Time Grouping:</label>
+                <select id="optGrouping"></select>
+            </div>
+        </main>
+        
+        <!--Company description-->
+        <section id="companyDesc"></section>
+
+        <!--Related Stock Snapshots-->
+        <aside id="relatedStocksCont">
+            <h2>Related Stocks</h2>
+            <div id="relatedStocks">Loading Related Stocks</div>
+        </aside>
+
+        <!--Related Finance News-->
+        <aside id="relatedNewsCont">
+            <h2>Related News</h2>
+            <div id="relatedNews">No news at this time</div>
+        </aside>
+        
+    </body>
+    <script src="src/graph-js/anychart-core.min.js"></script>
+    <script src="src/graph-js/anychart-stock.min.js"></script>
+    <script src="src/graph-js/anychart-exports.min.js"></script>
+    <script src="src/graph-js/anychart-ui.min.js"></script>
+    <script src="./src/app-stock.js" type="module"></script>
+
+</html>
