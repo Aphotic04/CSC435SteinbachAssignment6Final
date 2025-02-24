@@ -12,7 +12,7 @@ input {
     @apply border-transparent bg-gray-200 p-2 text-base;
 }
 input[type=text] {
-    @apply block mx-auto bg-gray-200 text-black;
+    @apply block bg-gray-200 text-black;
 }
 input[type=submit] {
     @apply bg-blue-500 text-black;
@@ -100,7 +100,7 @@ h2 {
 }
 
 .index #txtStock {
-    @apply col-span-3 w-1/2;
+    @apply col-span-3 w-1/2 mx-auto;
 }
 
 .index #results {
@@ -123,12 +123,20 @@ h2 {
     @apply col-span-3 grid grid-cols-3;
 }
 
+.stock #txtStock {
+    @apply 
+}
+
 .stock main {
-    @apply col-span-3 mx-auto w-2/2;
+    @apply col-span-3 mx-auto w-2/3;
 }
 
 .stock #container {
     @apply h-170;
+}
+
+.stock main div {
+    @apply mx-auto;
 }
 
 .stock select {
