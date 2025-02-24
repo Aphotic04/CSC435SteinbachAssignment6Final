@@ -1,3 +1,7 @@
+/**
+ * Chooses the appropriate data for fetching stocks.
+ * @returns {Object} - Dates formatted as strings in YYYY-MM-DD.
+ */
 function getTradingDates() {
     let now = new Date();
     
@@ -42,6 +46,12 @@ function getTradingDates() {
     return { todaysDate, tomorrowsDate };
 }
 
+/**
+ * Connects to serverless function via url to fetch API data.
+ * @param {String} url - URL to serverless function for API call.
+ * @returns {Object} - Data returned from serverless fetch.
+ * @throws {Error} - Thrown if there is any type of issue fetching response from API.
+ */
 async function fetchOutline(url) {
     try {
         //Fetch data from API
@@ -68,10 +78,19 @@ async function fetchOutline(url) {
     }
 }
 
+/**
+ * Connects to serverless function to attempt login with credentials.
+ * @param {String} username - Username to login.
+ * @param {String} password - Password to login.
+ * @returns {Object} - Data returned from serverless login.
+ * @throws {Error} - Thrown if there is any type of issue logging in.
+ */
 export async function login(username, password) {
     try {
+        //Debug log
         console.log('Attempting login for:', username);
 
+        //Fetches from serverless login function, including the correct data
         const response = await fetch("/api/login", {
             method: "POST",
             headers: { 
@@ -80,27 +99,39 @@ export async function login(username, password) {
             credentials: "include",
             body: JSON.stringify({ username, password })
         });
-        
-        const data = await response.json();
 
+        //If response is bad, throw error
         if (!response.ok) {
             throw new Error(data.error || `HTTP Error: ${response.status}`);
         }
 
+        //Data returned
+        const data = await response.json();
+
+        //Log response and return data
         console.log('Login response:', data);
         return data;
 
-    } catch (error) {
+    } catch (error) { //Catch any errors and log
         console.error("Login error:", error);
         throw error;
     }
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches 5 stocks that match with ticker.
+ * @param {String} ticker - Stock ticker.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchStockSearch(ticker) {
     const response = await fetchOutline(`../../api/fetch-stock-search.js?ticker=${ticker}`);
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches AI response of popular company tickers.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchAiStocks() {
     const content = `Please provide me with 20 large and popular companies with stocks in format of [{"ticker":"TCKR"}].`;
     const encodedContent = encodeURIComponent(content);
@@ -108,6 +139,11 @@ export async function fetchAiStocks() {
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches AI response of stocks related to ticker.
+ * @param {String} ticker - Stock ticker.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchAiRelated(ticker) {
     const content = `Please provide me with 10 companies similar or related to ${ticker} with stocks in format of [{"ticker":"TCKR"}].`;
     const encodedContent = encodeURIComponent(content);
@@ -115,16 +151,31 @@ export async function fetchAiRelated(ticker) {
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches top 20 gainers or losers.
+ * @param {String} direction - Either gainers or losers.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchGainersLosers(direction) {
     const response = await fetchOutline(`../../api/fetch-gainer-loser.js?direction=${direction}`);
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches relevant stock news.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchNews() {
     const response = await fetchOutline(`../../api/fetch-news-stocks.js`);
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches specified max amount of news related to ticker.
+ * @param {String} ticker - Stock ticker.
+ * @param {String} limit - Max amount of articles allows.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchRelatedNews(ticker, limit) {
     const tickerCall = `ticker=${ticker}&`;
     const encodedContent = encodeURIComponent(tickerCall);
@@ -132,11 +183,21 @@ export async function fetchRelatedNews(ticker, limit) {
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches snapshots of specified ticker(s).
+ * @param {String} ticker - Stock ticker.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchSnapshots(tickers) {
     const response = await fetchOutline(`../../api/fetch-snapshots.js?tickers=${tickers}`);
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches stock aggregate data in calculated time frame of specified ticker.
+ * @param {String} ticker - Stock ticker.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchStock(ticker) {
     const { todaysDate, tomorrowsDate } = getTradingDates();
     
@@ -144,6 +205,11 @@ export async function fetchStock(ticker) {
     return response;
 }
 
+/**
+ * Calls fetch function to fetch using the provided url. Fetches description of company with specified ticker.
+ * @param {String} ticker - Stock ticker.
+ * @returns {Object} - Data returned from fetch.
+ */
 export async function fetchCompanyDesc(ticker) {
     const response = await fetchOutline(`../../api/fetch-company-desc.js?ticker=${ticker}`);
     return response;

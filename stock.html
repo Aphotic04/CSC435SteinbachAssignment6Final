@@ -25,6 +25,7 @@ https://www.w3schools.com/howto/howto_js_autocomplete.asp
         <link href="src/graph-css/anychart-ui.min.css" rel="stylesheet" type="text/css">
     </head>
     <body class="stock" id="stockBody">
+        <!--Home nav and search bar-->
         <header>
             <nav><a href="./search.html">⮜ Home</a></nav>
             <div>
@@ -32,6 +33,8 @@ https://www.w3schools.com/howto/howto_js_autocomplete.asp
                 <section id="results"></section>
             </div>
         </header>
+
+        <!--Stock info and aggregate graph-->
         <main>
             <p id="stockDesc"></p>
             <div id="container"></div>
@@ -40,16 +43,18 @@ https://www.w3schools.com/howto/howto_js_autocomplete.asp
                 <label for="optGrouping">Time Grouping:</label>
                 <select id="optGrouping"></select>
             </div>
-            
         </main>
         
+        <!--Company description-->
         <section id="companyDesc"></section>
 
+        <!--Related Stock Snapshots-->
         <aside id="relatedStocksCont">
             <h2>Related Stocks</h2>
             <div id="relatedStocks">Loading Related Stocks</div>
         </aside>
 
+        <!--Related Finance News-->
         <aside id="relatedNewsCont">
             <h2>Related News</h2>
             <div id="relatedNews">No news at this time</div>
