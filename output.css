@@ -2294,7 +2294,9 @@ h2 {
   line-height: var(--tw-leading, var(--text-2xl--line-height));
 }
 .snapshotElement {
+  margin-block: auto;
   background-color: var(--color-gray-950);
+  padding: calc(var(--spacing) * 3);
   color: var(--color-white);
   &:hover {
     @media (hover: hover) {

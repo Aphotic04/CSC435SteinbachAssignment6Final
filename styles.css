@@ -62,7 +62,7 @@ h2 {
 }
 
 .snapshotElement{
-    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer;
+    @apply bg-gray-950 text-white hover:bg-gray-800 hover:cursor-pointer p-3 my-auto;
 }
 
 .stock a {
