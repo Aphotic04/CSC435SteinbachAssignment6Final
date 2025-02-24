@@ -2267,6 +2267,12 @@ input[type=submit] {
       background-color: var(--color-gray-600);
     }
   }
+  @media (width < 40rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (width < 40rem) {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
 }
 img {
   grid-row: span 2 / span 2;
@@ -2275,6 +2281,9 @@ img {
   border-radius: var(--radius-xl);
   background-color: var(--color-gray-300);
   color: var(--color-black);
+  @media (width < 40rem) {
+    grid-row: span 1 / span 1;
+  }
 }
 .newsArticle strong {
   grid-column: span 2 / span 2;

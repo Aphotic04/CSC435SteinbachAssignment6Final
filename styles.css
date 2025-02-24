@@ -38,11 +38,11 @@ input[type=submit] {
 }
 
 .newsArticle {
-    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 grid-rows-2 rounded-xl items-center;
+    @apply bg-gray-500 hover:bg-gray-600 hover:cursor-pointer my-3 grid grid-cols-3 grid-rows-2 rounded-xl items-center max-sm:grid-cols-2 max-sm:grid-rows-3;
 }
 
 img {
-    @apply block bg-gray-300 m-3 rounded-xl text-black row-span-2;
+    @apply block bg-gray-300 m-3 rounded-xl text-black row-span-2 max-sm:row-span-1;
 }
 
 .newsArticle strong {
