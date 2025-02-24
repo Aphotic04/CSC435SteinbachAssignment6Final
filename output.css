@@ -2363,7 +2363,6 @@ h2 {
 #stockBody {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-items: center;
   gap: calc(var(--spacing) * 4);
   background-color: var(--color-gray-700);
   font-family: var(--font-sans);
@@ -2379,10 +2378,11 @@ h2 {
 .s .stock main {
   grid-column: span 3 / span 3;
   margin-inline: auto;
+  display: block;
   width: calc(1/2 * 100%);
 }
 .stock #container {
-  height: calc(var(--spacing) * 400);
+  height: calc(var(--spacing) * 200);
   width: calc(2/2 * 100%);
 }
 .stock select {
