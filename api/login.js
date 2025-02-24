@@ -13,6 +13,12 @@ const users = [
 ];
 
 export default async function handler(req, res) {
+    const users = [
+        { 
+            username: process.env.USERNAME, 
+            password: process.env.PASSWORD
+        }
+    ];
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
