@@ -166,12 +166,12 @@ h2 {
     @apply col-span-2;
 }
 
-.login body {
-    @apply font-sans text-base bg-gray-700 text-white;
+#loginBody {
+    @apply font-sans text-base bg-gray-700 text-white h-2/2;
 }
 
 .login main {
-    @apply bg-gray-600 text-center;
+    @apply bg-gray-600 text-center h-fit w-fit p-5;
 }
 
 .login input {

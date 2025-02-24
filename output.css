@@ -2413,7 +2413,8 @@ h2 {
 .stock #relatedStocksCont {
   grid-column: span 2 / span 2;
 }
-.login body {
+#loginBody {
+  height: calc(2/2 * 100%);
   background-color: var(--color-gray-700);
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -2421,7 +2422,10 @@ h2 {
   color: var(--color-white);
 }
 .login main {
+  height: fit-content;
+  width: fit-content;
   background-color: var(--color-gray-600);
+  padding: calc(var(--spacing) * 5);
   text-align: center;
 }
 .login input {
