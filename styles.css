@@ -123,8 +123,12 @@ h2 {
     @apply col-span-3 grid grid-cols-3;
 }
 
+.stock header div {
+    @apply col-span-2;
+}
+
 .stock #txtStock {
-    @apply w-full col-span-2;
+    @apply w-full;
 }
 
 .stock main {
