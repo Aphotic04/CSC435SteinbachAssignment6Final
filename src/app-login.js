@@ -7,7 +7,7 @@ async function loadEvent() {
     return Events;
 }
 
-const Events = await loadEvent();
+const Events = await loadEvent(); //Get Event file exports
 
 //Upon clicking submit button, attempt logging in
 document.getElementById('submit').addEventListener('click',Events.loginEvent);
