@@ -696,6 +696,9 @@
   .m-1 {
     margin: calc(var(--spacing) * 1);
   }
+  .m-6 {
+    margin: calc(var(--spacing) * 6);
+  }
   .box-border {
     box-sizing: border-box;
   }
