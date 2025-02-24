@@ -124,11 +124,11 @@ h2 {
 }
 
 .stock main {
-    @apply col-span-3 mx-auto;
+    @apply col-span-3 mx-auto w-2/2;
 }
 
 .stock #container {
-    @apply w-2/2 h-170;
+    @apply h-170;
 }
 
 .stock select {
