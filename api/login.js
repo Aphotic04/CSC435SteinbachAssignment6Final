@@ -5,55 +5,60 @@ import validator from "validator";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 
-dotenv.config(); //Config dotenv
+dotenv.config(); // Load environment variables
 
-//Sets a limit to rate of login attempts
+// Custom function to extract client IP (since req.ip is unavailable in Vercel)
+const getClientIp = (req) => {
+    return (
+        req.headers["x-forwarded-for"]?.split(",")[0] || // Use first IP in case of multiple proxies
+        req.connection?.remoteAddress || 
+        req.socket?.remoteAddress || 
+        "unknown"
+    );
+};
+
+// Rate limiter with custom IP extraction
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5, // Limit to 5 attempts
+    max: 5, // Limit to 5 login attempts
+    keyGenerator: (req) => getClientIp(req), // Custom function to get IP
     message: { error: "Too many login attempts. Try again later." }
 });
 
 /**
- * Handles attempted logins serverlessly.
- * @param {Object} req - The request info.
- * @param {Object} res - The response info.
- * @returns {Object} - Either an error or a success message and the username.
- * @throws {Error} - Thrown for any sort of issues with the login.
+ * Handles attempted logins in a serverless environment.
+ * @param {Object} req - The incoming request object.
+ * @param {Object} res - The outgoing response object.
+ * @returns {Object} - JSON response indicating success or failure.
  */
 export default async function handler(req, res) {
-    // Apply rate-limiting middleware (prevents brute-force attacks)
     loginLimiter(req, res, async () => {
-        // Ensure only POST requests are allowed
         if (req.method !== "POST") {
             return res.status(405).json({ error: "Method not allowed" });
         }
 
         try {
-            // Validate request body (check if username & password exist)
+            // Validate request body
             if (!req.body || !req.body.username || !req.body.password) {
                 return res.status(400).json({ error: "Missing username or password" });
             }
 
             const { username, password } = req.body;
 
-            // Validate username: must be alphanumeric and not exceed 50 characters
+            // Validate username format (only alphanumeric and max 50 chars)
             if (!validator.isAlphanumeric(username) || username.length > 50) {
                 return res.status(400).json({ error: "Invalid username format" });
             }
 
-            // Validate password length (enforce strong password policy)
+            // Validate password length (8-100 characters)
             if (password.length < 8 || password.length > 100) {
                 return res.status(400).json({ error: "Password must be between 8-100 characters" });
             }
 
-            // Simulated user database (should be replaced with a real DB lookup)
-            const users = [
-                { username: process.env.USERNAME, password: process.env.PASSWORD }
-            ];
-
-            // Find user in the list (case-sensitive match)
+            // Mocked user authentication (replace with database lookup)
+            const users = [{ username: process.env.USERNAME, password: process.env.PASSWORD }];
             const user = users.find((u) => u.username === username);
+
             if (!user) {
                 return res.status(401).json({ error: "Invalid credentials" });
             }
@@ -64,42 +69,40 @@ export default async function handler(req, res) {
                 return res.status(401).json({ error: "Invalid credentials" });
             }
 
-            // Ensure JWT_SECRET is set in the environment variables
+            // Ensure JWT_SECRET is set
             if (!process.env.JWT_SECRET) {
                 console.error("JWT_SECRET is not set");
                 return res.status(500).json({ error: "Server configuration error" });
             }
 
-            // Generate JWT token with claims
+            // Generate JWT token
             const token = jwt.sign(
                 {
-                    username, 
+                    username,
                     iat: Math.floor(Date.now() / 1000), // Issued at timestamp
-                    aud: "myapp.com" // Audience claim (can be used for validation)
+                    aud: "myapp.com" // Audience claim
                 },
                 process.env.JWT_SECRET,
-                { expiresIn: "1h" } // Token expiry (1 hour)
+                { expiresIn: "1h" } // Token expiration
             );
 
-            // Set secure cookie containing JWT token
+            // Set secure cookie with JWT
             res.setHeader(
                 "Set-Cookie",
                 cookie.serialize("token", token, {
-                    httpOnly: true, // Prevents JavaScript access (protection against XSS)
+                    httpOnly: true, // Protects against XSS
                     secure: process.env.NODE_ENV === "production", // Enforce HTTPS in production
-                    sameSite: "strict", // Mitigates CSRF attacks
+                    sameSite: "strict", // Protect against CSRF
                     maxAge: 3600, // 1 hour expiration
                     path: "/" // Available to all routes
                 })
             );
 
-            // Respond with success message and username
             return res.status(200).json({ message: "Login successful", username });
 
         } catch (error) {
             console.error("Server error:", error);
 
-            // In development, return error details for debugging
             return res.status(500).json({
                 error: "Internal server error",
                 details: process.env.NODE_ENV === "development" ? error.message : undefined
