@@ -1,10 +1,28 @@
+import jwt from "jsonwebtoken";
+import cookie from "cookie";
+import fetch from "node-fetch";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export default async function handler(req, res) {
+  if (req.method !== "GET") return res.status(405).end(); // Method not allowed
+
+  // Extract token from cookies
+  const cookies = cookie.parse(req.headers.cookie || "");
+  const token = cookies.token;
+
+  if (!token) {
+      return res.status(403).json({ error: "Not authenticated" });
+  }
   try {
+    jwt.verify(token, process.env.JWT_SECRET); // Verify JWT
+
     const apiKey = process.env.API_KEY; // Securely stored on Vercel
 
     const ticker = req.query.ticker || "";
     const limit = req.query.limit || "10";
-    
+
     const tickerDecode = decodeURIComponent(ticker);
 
     // Get the ticker from query parameters, defaulting to 'A' if not provided
@@ -19,6 +37,6 @@ export default async function handler(req, res) {
     const data = await response.json();
     res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch data' });
+    res.status(403).json({ error: "Invalid token" });
   }
 }

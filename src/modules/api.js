@@ -45,10 +45,45 @@ function getTradingDates() {
 async function fetchOutline(url) {
     try {
         //Fetch data from API
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            method: "GET",
+            credentials: "include"  // Ensures cookie is sent
+        });
         
         //If response is not ok, throw error
         if (response.status == 500) {
+            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
+        }
+
+        //Put data in constant after parsing
+        const data = await response.json();
+
+        console.log(data);
+        //Return data
+        return(data);
+
+    } catch (error) { //Catch thrown error
+        //Log and display error
+        console.error("Error fetching data:", error);
+        return null;
+    }
+}
+
+export async function login(username, password) {
+    try {
+        //Fetch data from API
+        const response = await fetch("../../api/login.js", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",  // Sends cookies securely
+            body: JSON.stringify({ username, password })
+        });
+        
+        //If response is not ok, throw error
+        if (response.status == 405) {
+            throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
+        }
+        else if (response.status == 401){
             throw new Error(`HTTP Error\nStatus: ${response.status} - ${response.statusText}`);
         }
 
