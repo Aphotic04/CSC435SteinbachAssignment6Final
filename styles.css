@@ -79,7 +79,7 @@ h2 {
 }
 
 #indexBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white 2xl:grid-cols-1;
 }
 
 .index header {
@@ -95,11 +95,11 @@ h2 {
 }
 
 .index #title {
-    @apply col-span-3 mx-auto;
+    @apply col-span-3 mx-auto 2xl:col-span-1;
 }
 
 .index #search {
-    @apply col-span-3 w-1/2 mx-auto;
+    @apply col-span-3 w-1/2 mx-auto 2xl:col-span-1;
 }
 
 .index #txtStock, .index #results {
@@ -111,7 +111,7 @@ h2 {
 }
 
 .index main {
-    @apply col-span-2 grid grid-cols-2 gap-2;
+    @apply col-span-2 grid grid-cols-2 gap-2 2xl:col-span-1;
 }
 
 
@@ -119,11 +119,11 @@ h2 {
 
 
 #stockBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white 2xl:grid-cols-1;
 }
 
 .stock header {
-    @apply col-span-3 grid grid-cols-3;
+    @apply col-span-3 grid grid-cols-3 2xl:col-span-1;
 }
 
 .stock .autocomplete-items {
@@ -143,7 +143,7 @@ h2 {
 }
 
 .stock main {
-    @apply col-span-3 mx-auto w-2/3;
+    @apply col-span-3 mx-auto w-2/3 2xl:col-span-1;
 }
 
 .stock #container {
@@ -159,12 +159,15 @@ h2 {
 }
 
 .stock #companyDesc {
-    @apply col-span-3 w-1/2 mx-auto;
+    @apply col-span-3 w-1/2 mx-auto 2xl:col-span-1;
 }
 
 .stock #relatedStocksCont {
-    @apply col-span-2;
+    @apply col-span-2 2xl:col-span-1;
 }
+
+
+
 
 #loginBody {
     @apply font-sans text-base bg-gray-700 text-white h-2/2;

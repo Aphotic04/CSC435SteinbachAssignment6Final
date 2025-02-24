@@ -51,7 +51,11 @@ export async function displaySnapshots(data, elementId) {
 export async function displayNews(data, elementId) {
     const container = document.getElementById(elementId);
     const Event = await loadEvent();
-    container.innerHTML = "";
+
+    if (data.length > 0) {
+        container.innerHTML = "";
+    }
+
     for (var i = 0; i < data.length; i++) {
         const newContainer = document.createElement('div');
         const curr = data[i];
