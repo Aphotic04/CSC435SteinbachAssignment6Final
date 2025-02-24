@@ -2330,13 +2330,15 @@ h2 {
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
   color: var(--color-white);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 .index header {
-  grid-column: span 3 / span 3;
   overflow: hidden;
+  @media (width < 96rem) {
+    grid-column: span 3 / span 3;
+  }
 }
 .index #scroll {
   animation: var(--animate-scroll);
@@ -2349,7 +2351,7 @@ h2 {
 .index #title {
   grid-column: span 3 / span 3;
   margin-inline: auto;
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
@@ -2357,7 +2359,7 @@ h2 {
   grid-column: span 3 / span 3;
   margin-inline: auto;
   width: calc(1/2 * 100%);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
@@ -2372,7 +2374,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: calc(var(--spacing) * 2);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
@@ -2385,7 +2387,7 @@ h2 {
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
   color: var(--color-white);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
@@ -2393,7 +2395,7 @@ h2 {
   grid-column: span 3 / span 3;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
@@ -2415,7 +2417,7 @@ h2 {
   grid-column: span 3 / span 3;
   margin-inline: auto;
   width: calc(2/3 * 100%);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
@@ -2432,13 +2434,13 @@ h2 {
   grid-column: span 3 / span 3;
   margin-inline: auto;
   width: calc(1/2 * 100%);
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
 .stock #relatedStocksCont {
   grid-column: span 2 / span 2;
-  @media (width >= 96rem) {
+  @media (width < 96rem) {
     grid-column: span 1 / span 1;
   }
 }
