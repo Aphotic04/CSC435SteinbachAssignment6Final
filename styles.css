@@ -116,7 +116,7 @@ h2 {
 
 
 #stockBody {
-    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white;
+    @apply grid grid-cols-3 gap-4 font-sans text-base bg-gray-700 text-white justify-items-center;
 }
 
 .stock header {
@@ -130,7 +130,7 @@ h2 {
 }
 
 .stock #container {
-    @apply w-2/2 h-150;
+    @apply w-2/2 h-400;
 }
 
 .stock select {
