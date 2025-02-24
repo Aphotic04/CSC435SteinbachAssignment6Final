@@ -1,3 +1,8 @@
+import bcrypt from "bcryptjs";
+
+// For testing purposes, create a hashed password
+console.log(bcrypt.hashSync("password123", 10));
+
 async function loadApi() {
     const Api = await import("./modules/api.js");
     return Api;
@@ -15,7 +20,7 @@ document.getElementById('submit').addEventListener('click',async (e) => {
         console.log('Login successful:', result);
         
         // Redirect or update UI on success
-        window.location.href = '/index';
+        window.location.href = './index.html';
     } catch (error) {
         console.error('Login failed:', error.message);
         // Show error to user
