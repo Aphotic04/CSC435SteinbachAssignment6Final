@@ -2351,8 +2351,11 @@ h2 {
   margin-inline: auto;
   width: calc(1/2 * 100%);
 }
-.index #txtStock, .index #results {
+.index #txtStock {
   width: 100%;
+}
+.index #results {
+  width: calc(1/2 * 100%);
 }
 .index main {
   grid-column: span 2 / span 2;
@@ -2395,7 +2398,7 @@ h2 {
   height: calc(var(--spacing) * 170);
 }
 .stock main div {
-  margin-inline: auto;
+  text-align: center;
 }
 .stock select {
   background-color: var(--color-gray-800);

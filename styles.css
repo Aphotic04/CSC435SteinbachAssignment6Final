@@ -102,8 +102,12 @@ h2 {
     @apply col-span-3 w-1/2 mx-auto;
 }
 
-.index #txtStock, .index #results {
+.index #txtStock{
     @apply w-full;
+}
+
+.index #results {
+    @apply w-1/2;
 }
 
 .index main {
@@ -143,7 +147,7 @@ h2 {
 }
 
 .stock main div {
-    @apply mx-auto;
+    @apply text-center;
 }
 
 .stock select {
