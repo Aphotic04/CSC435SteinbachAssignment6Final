@@ -18,7 +18,7 @@ input[type=submit] {
     @apply bg-blue-500 text-black;
 }
 .autocomplete-items {
-    @apply absolute border border-gray-300 border-t-0 z-50 w-2/2;
+    @apply absolute border border-gray-300 border-t-0 z-50 w-auto;
 }
 .autocomplete-items div {
     @apply p-2 cursor-pointer bg-white text-black border-b border-gray-300;
