@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+import bcrypt from "../node_modules/bcryptjs";
 
 // For testing purposes, create a hashed password
 console.log(bcrypt.hashSync("password123", 10));
