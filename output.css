@@ -2210,7 +2210,6 @@ input {
   line-height: var(--tw-leading, var(--text-base--line-height));
 }
 input[type=text] {
-  margin-inline: auto;
   display: block;
   background-color: var(--color-gray-200);
   color: var(--color-black);
@@ -2349,6 +2348,7 @@ h2 {
 }
 .index #txtStock {
   grid-column: span 3 / span 3;
+  margin-inline: auto;
   width: calc(1/2 * 100%);
 }
 .index #results {
@@ -2375,13 +2375,19 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.stock #txtStock {
+  width: 100%;
+}
 .stock main {
   grid-column: span 3 / span 3;
   margin-inline: auto;
-  width: calc(2/2 * 100%);
+  width: calc(2/3 * 100%);
 }
 .stock #container {
   height: calc(var(--spacing) * 170);
+}
+.stock main div {
+  margin-inline: auto;
 }
 .stock select {
   background-color: var(--color-gray-800);

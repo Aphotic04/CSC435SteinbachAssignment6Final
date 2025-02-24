@@ -124,7 +124,7 @@ h2 {
 }
 
 .stock #txtStock {
-    @apply 
+    @apply w-full;
 }
 
 .stock main {
