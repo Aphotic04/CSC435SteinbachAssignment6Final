@@ -2353,6 +2353,7 @@ h2 {
 }
 .index #results {
   grid-column: span 3 / span 3;
+  width: calc(1/2 * 100%);
 }
 .index main {
   grid-column: span 2 / span 2;
@@ -2374,6 +2375,14 @@ h2 {
   grid-column: span 3 / span 3;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.stock a {
+  font-size: var(--text-3xl);
+  line-height: var(--tw-leading, var(--text-3xl--line-height));
+}
+.stock #stockDesc {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
 }
 .stock #txtStock, .stock #results {
   width: 100%;

@@ -103,7 +103,7 @@ h2 {
 }
 
 .index #results {
-    @apply col-span-3;
+    @apply col-span-3 w-1/2;
 }
 
 .index main {
@@ -120,6 +120,14 @@ h2 {
 
 .stock header {
     @apply col-span-3 grid grid-cols-3;
+}
+
+.stock a {
+    @apply text-3xl;
+}
+
+.stock #stockDesc {
+    @apply text-xl;
 }
 
 .stock #txtStock, .stock #results {
