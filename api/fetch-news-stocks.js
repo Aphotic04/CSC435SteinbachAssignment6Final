@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import fetch from "node-fetch";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -17,7 +16,7 @@ export default async function handler(req, res) {
   if (!token) {
     return res.status(403).json({ error: "Not authenticated" });
   }
-
+  
   try {
     try {
       jwt.verify(token, process.env.JWT_SECRET);
@@ -34,7 +33,7 @@ export default async function handler(req, res) {
 
     // Get the ticker from query parameters, defaulting to 'A' if not provided
 
-    const response = await fetch(`https://api.polygon.io/v2/reference/news?limit=10&apiKey=yfaBNM03NJpy3uNeuui5xCCRrgDqtbTd`);
+    const response = await fetch(`https://api.polygon.io/v2/reference/news?${tickerDecode}limit=${limit}&apiKey=${apiKey}`);
 
     //If response is not ok, throw error
     if (!response.ok) {
