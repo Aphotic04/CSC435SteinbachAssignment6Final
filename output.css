@@ -2375,8 +2375,8 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.s .stock main {
-  grid-column: span 2 / span 2;
+.stock main {
+  grid-column: span 3 / span 3;
   margin-inline: auto;
 }
 .stock #container {

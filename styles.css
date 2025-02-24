@@ -123,10 +123,8 @@ h2 {
     @apply col-span-3 grid grid-cols-3;
 }
 
-.s
-
 .stock main {
-    @apply col-span-2 mx-auto;
+    @apply col-span-3 mx-auto;
 }
 
 .stock #container {
