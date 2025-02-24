@@ -1,11 +1,21 @@
-/*ai.js - Function to get weather recommendations from OpenAi's GPT-4.0 model
-Ty Steinbach
-Written:   02-07-2025
-Revised:   02-08-2025
-*/
+import jwt from "jsonwebtoken";
+import cookie from "cookie";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default async function handler(req, res) {
-  //Setting const/var for weather data to use in query 
+  if (req.method !== "GET") {
+    return res.status(405).end(); // Method not allowed
+  } 
+
+  // Extract token from cookies
+  const cookies = cookie.parse(req.headers.cookie || "");
+  const token = cookies.token;
+
+  if (!token) {
+    return res.status(403).json({ error: "Not authenticated" });
+  }
 
   const TEMP_KEY = process.env.AI_KEY; // Securely stored on Vercel
 
@@ -23,6 +33,11 @@ export default async function handler(req, res) {
   
 
   try {
+    try {
+      jwt.verify(token, process.env.JWT_SECRET);
+    } catch (error) {
+      return res.status(403).json({ error: "Invalid or expired token" });
+    }
     //Fetch data from API using POST
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: "POST",
