@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import fetch from "node-fetch";
+import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -9,23 +9,43 @@ dotenv.config();
 const users = [{ username: "testuser", password: await bcrypt.hash("password123", 10) }];
 
 export default async function handler(req, res) {
-    if (req.method !== "POST") return res.status(405).end(); // Method not allowed
-
-    const { username, password } = req.body;
-    const user = users.find((u) => u.username === username);
-
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-        return res.status(401).json({ error: "Invalid credentials" });
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    try {
+        const { username, password } = req.body;
+        const user = users.find((u) => u.username === username);
 
-    res.setHeader("Set-Cookie", cookie.serialize("token", token, {
-        httpOnly: true,  // Protects from XSS
-        secure: process.env.NODE_ENV === "production",  // HTTPS only in production
-        sameSite: "Strict",  // CSRF protection
-        path: "/"
-    }));
+        if (!user) {
+            return res.status(401).json({ error: "Invalid credentials" });
+        }
 
-    res.json({ message: "Login successful" });
+        const isValid = await bcrypt.compare(password, user.password);
+        
+        if (!isValid) {
+            return res.status(401).json({ error: "Invalid credentials" });
+        }
+
+        // Make sure JWT_SECRET is set in your Vercel environment variables
+        const token = jwt.sign({ username }, process.env.JWT_SECRET, { 
+            expiresIn: "1h" 
+        });
+
+        res.setHeader(
+            "Set-Cookie", 
+            cookie.serialize("token", token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "strict",
+                maxAge: 3600, // 1 hour in seconds
+                path: "/"
+            })
+        );
+
+        return res.status(200).json({ message: "Login successful" });
+    } catch (error) {
+        console.error('Login error:', error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
 }
