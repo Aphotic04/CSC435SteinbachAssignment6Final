@@ -6,58 +6,26 @@ Last Edit: 02-22-2025
 
 Deliverables: 
 A final project meeting requirements
-
-API Sources:
-https://polygon.io/
-
-Sources:
-https://www.w3schools.com/howto/howto_js_autocomplete.asp
 -->
 <!DOCTYPE html>
 <html id="html" lang="en" class="h-3/3">
     <head>
         <meta charset="utf-8">
-        <title>Stock Search</title>
+        <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Stock Search">
+        <meta name="description" content="Stock Login">
         <link href="./output.css" rel="stylesheet">
+        <link href="src/graph-css/anychart-ui.min.css" rel="stylesheet" type="text/css">
     </head>
-    <body class="index" id="indexBody">
-        <header>
-            <div id="scroll">Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading </div>
-        </header>
-
-        <div id="title">
-            <h1>Stock Search</h1>
-        </div>
-        
-        <div id="search">
-            <input id="txtStock" type="text" name="txtStock" placeholder="Search Stocks">
-            <section id="results"></section>
-        </div>
-
+    <body class="login" id="stockLogin">
         <main>
-            <a href="./login.html">LOGINNNNN</a>
-            <div id="gainerContainer">
-                <h2>Top Gainers</h3>
-                <ul id="gainers">
+            <h1>Login</h1>
+            <input type="text" placeholder="Username" id="username">
+            <input type="text" placeholder="Password" id="password">
 
-                </ul>
-            </div>
-            <div id="loserContainer">
-                <h2>Top Losers</h3>
-                <ul id="losers">
-
-                </ul>
-            </div>
+            <button type="submit" id="submit">Submit</button>
         </main>
-
-        <aside>
-            <h2>Finance News</h2>
-            <article id="news"></article>
-        </aside>
-
     </body>
+    <script src="./src/app-login.js" type="module"></script>
 
-    <script src="./src/app.js" type="module"></script>
 </html>
