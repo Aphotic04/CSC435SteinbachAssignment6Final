@@ -2346,14 +2346,13 @@ h2 {
   grid-column: span 3 / span 3;
   margin-inline: auto;
 }
-.index #txtStock {
+.index #search {
   grid-column: span 3 / span 3;
   margin-inline: auto;
   width: calc(1/2 * 100%);
 }
-.index #results {
-  grid-column: span 3 / span 3;
-  width: calc(1/2 * 100%);
+.index #txtStock, .index #results {
+  width: 100%;
 }
 .index main {
   grid-column: span 2 / span 2;

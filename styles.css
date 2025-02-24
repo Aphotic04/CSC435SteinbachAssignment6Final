@@ -98,12 +98,12 @@ h2 {
     @apply col-span-3 mx-auto;
 }
 
-.index #txtStock {
+.index #search {
     @apply col-span-3 w-1/2 mx-auto;
 }
 
-.index #results {
-    @apply col-span-3 w-1/2;
+.index #txtStock, .index #results {
+    @apply w-full;
 }
 
 .index main {
