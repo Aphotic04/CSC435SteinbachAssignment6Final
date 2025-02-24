@@ -83,7 +83,7 @@ h2 {
 }
 
 .index header {
-    @apply overflow-hidden max-2xl:col-span-3;
+    @apply overflow-hidden col-span-3 max-2xl:col-span-1;
 }
 
 .index #scroll {

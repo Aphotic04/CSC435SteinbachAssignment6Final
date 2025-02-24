@@ -2335,9 +2335,10 @@ h2 {
   }
 }
 .index header {
+  grid-column: span 3 / span 3;
   overflow: hidden;
   @media (width < 96rem) {
-    grid-column: span 3 / span 3;
+    grid-column: span 1 / span 1;
   }
 }
 .index #scroll {
