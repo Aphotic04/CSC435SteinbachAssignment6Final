@@ -696,9 +696,6 @@
   .m-1 {
     margin: calc(var(--spacing) * 1);
   }
-  .m-6 {
-    margin: calc(var(--spacing) * 6);
-  }
   .box-border {
     box-sizing: border-box;
   }
@@ -2415,6 +2412,20 @@ h2 {
 }
 .stock #relatedStocksCont {
   grid-column: span 2 / span 2;
+}
+.login body {
+  background-color: var(--color-gray-700);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--tw-leading, var(--text-base--line-height));
+  color: var(--color-white);
+}
+.login main {
+  background-color: var(--color-gray-600);
+  text-align: center;
+}
+.login input {
+  background-color: var(--color-gray-800);
 }
 @keyframes spin {
   to {
