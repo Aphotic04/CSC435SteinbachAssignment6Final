@@ -132,6 +132,7 @@ export async function displayGrouping() {
 export async function displayStockDesc(data, name) {
     const stockDesc = document.getElementById('stockDesc'); //Container to add new elements
 
+    //If there is data, display data
     if (data.length > 0) {
         data = data['tickers'];
         const percent = parseFloat(data['todaysChangePerc'].toFixed(3)); //Percent of change for stock
@@ -167,7 +168,7 @@ export async function displayStockDesc(data, name) {
                 $${parseFloat(data['day']['c']).toFixed(3)}
             </p>
         `;
-    } else {
+    } else { //Else display error
         stockDesc.innerHTML = `No Information Available`;
     }
 
