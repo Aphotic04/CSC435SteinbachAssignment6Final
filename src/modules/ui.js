@@ -132,39 +132,47 @@ export async function displayGrouping() {
 export async function displayStockDesc(data, name) {
     const stockDesc = document.getElementById('stockDesc'); //Container to add new elements
 
-    const percent = parseFloat(data['todaysChangePerc'].toFixed(3)); //Percent of change for stock
+    //If there is data, display data
+    if (data.length > 0) {
+        data = data[0];
+        const percent = parseFloat(data['todaysChangePerc'].toFixed(3)); //Percent of change for stock
 
-    //Vars for variable information in new element
-    var symbol;
-    var direction;
-    var operator;
+        //Vars for variable information in new element
+        var symbol;
+        var direction;
+        var operator;
 
-    //Decides what to include based on percent
-    if (percent >= 0) {
-        direction = "gainers";
-        symbol = '⮝';
-        operator = '+';
-    } else {
-        direction = "losers";
-        symbol = '⮟';
-        operator = '';
+        //Decides what to include based on percent
+        if (percent >= 0) {
+            direction = "gainers";
+            symbol = '⮝';
+            operator = '+';
+        } else {
+            direction = "losers";
+            symbol = '⮟';
+            operator = '';
+        }
+
+        //Sets HTML content
+        stockDesc.innerHTML = `
+            <p class="fadedTicker">
+                ${data['ticker']}
+            </p>
+            <p>
+                <span class='${direction}'>${symbol}</span>
+                ${name}
+                <span class='${direction}'>${operator}${parseFloat(data['todaysChangePerc']).toFixed(3)}%</span>
+            </p>
+            <p>
+                <span class='${direction}'>$${operator}${parseFloat(data['todaysChange']).toFixed(3)}</span>
+                $${parseFloat(data['day']['c']).toFixed(3)}
+            </p>
+        `;
+    } else { //Else display error
+        stockDesc.innerHTML = `No Information Available`;
     }
 
-    //Sets HTML content
-    stockDesc.innerHTML = `
-        <p class="fadedTicker">
-            ${data['ticker']}
-        </p>
-        <p>
-            <span class='${direction}'>${symbol}</span>
-            ${name}
-            <span class='${direction}'>${operator}${parseFloat(data['todaysChangePerc']).toFixed(3)}%</span>
-        </p>
-        <p>
-            <span class='${direction}'>$${operator}${parseFloat(data['todaysChange']).toFixed(3)}</span>
-            $${parseFloat(data['day']['c']).toFixed(3)}
-        </p>
-    `;
+    
 }
 
 /**
