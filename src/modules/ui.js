@@ -133,6 +133,7 @@ export async function displayStockDesc(data, name) {
     const stockDesc = document.getElementById('stockDesc'); //Container to add new elements
 
     if (data.length > 0) {
+        data = data['tickers'];
         const percent = parseFloat(data['todaysChangePerc'].toFixed(3)); //Percent of change for stock
 
         //Vars for variable information in new element

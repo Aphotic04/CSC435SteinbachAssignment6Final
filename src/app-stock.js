@@ -143,7 +143,7 @@ anychart.onDocumentReady(async function () {
 async function handleStockDesc(name) {
     const data = await Api.fetchSnapshots(thisStock); //Fetches snapshot data
 
-    await Ui.displayStockDesc(data['tickers'][0], name); //Displays data and name
+    await Ui.displayStockDesc(data['tickers'], name); //Displays data and name
 }
 
 /**
