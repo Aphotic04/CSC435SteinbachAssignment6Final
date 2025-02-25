@@ -1454,6 +1454,9 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
@@ -2238,10 +2241,6 @@ input[type=submit] {
 }
 .autocomplete-items div:hover {
   background-color: var(--color-gray-300);
-}
-.autocomplete-active {
-  background-color: var(--color-blue-500);
-  color: var(--color-black);
 }
 .gainers {
   color: var(--color-green-500);
