@@ -108,7 +108,7 @@ export function clickStock() {
 export async function clickStockSearch() {
     const searchBar = document.getElementById('txtStock'); //Search bar element
     const results = document.getElementById('results'); //Results element
-    const searchValue = searchBar.value.toUpperCase(); //Value in search bar
+    const searchValue = searchBar.value; //Value in search bar
 
     const Api = await loadApi(); //Loads API file
 
