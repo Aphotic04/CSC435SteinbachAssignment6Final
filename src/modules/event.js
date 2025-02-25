@@ -117,7 +117,7 @@ export async function clickStockSearch() {
 
 
     //If input is invalid, display message
-    if (!/^[A-Za-z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10 || data['status'] === null) {
+    if (!/^[A-Za-z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10 || data === null) {
         results.innerHTML = 'Invalid Ticker'
     } else { //Else set ticker in session storage and redirect user
         results.innerHTML = "";
