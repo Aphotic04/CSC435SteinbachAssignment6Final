@@ -134,7 +134,7 @@ export async function displayStockDesc(data, name) {
 
     //If there is data, display data
     if (data.length > 0) {
-        data = data['tickers'];
+        data = data[0];
         const percent = parseFloat(data['todaysChangePerc'].toFixed(3)); //Percent of change for stock
 
         //Vars for variable information in new element
