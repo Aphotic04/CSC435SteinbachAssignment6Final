@@ -298,12 +298,12 @@ export function autocomplete(inp, arr, arr1) {
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         /*add class "autocomplete-active":*/
-        x[currentFocus].classList.add("autocomplete-active");
+        x[currentFocus].style.backgroundColor = 'rgb(43, 127, 255)';
     }
     function removeActive(x) {
         /*a function to remove the "active" class from all autocomplete items:*/
         for (var i = 0; i < x.length; i++) {
-        x[i].classList.remove("autocomplete-active");
+        x[i].classList.style.backgroundColor = 'white';
         }
     }
     function closeAllLists(elmnt) {
