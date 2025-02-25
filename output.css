@@ -2239,10 +2239,6 @@ input[type=submit] {
 .autocomplete-items div:hover {
   background-color: var(--color-gray-300);
 }
-.autocomplete-active {
-  background-color: var(--color-blue-500);
-  color: var(--color-black);
-}
 .gainers {
   color: var(--color-green-500);
 }
