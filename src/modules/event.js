@@ -103,15 +103,21 @@ export function clickStock() {
 }
 
 /**
- * Checks for invalid input from search bar, places tciker is session storage, and redirects user.
+ * Checks for invalid input from search bar, places ticker is session storage, and redirects user.
  */
-export function clickStockSearch() {
+export async function clickStockSearch() {
     const searchBar = document.getElementById('txtStock'); //Search bar element
     const results = document.getElementById('results'); //Results element
-    const searchValue = searchBar.value; //Value in search bar
+    const searchValue = searchBar.value.toUpperCase; //Value in search bar
+
+    const Api = await loadApi(); //Loads API file
+
+    //Gets company description to ensure that this ticker does indeed exist
+    const data = await Api.fetchCompanyDesc(searchValue);
+
 
     //If input is invalid, display message
-    if (!/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10) {
+    if (!/^[A-Z0-9.-]+$/.test(searchValue) || searchValue.length === 0 || !searchValue || searchValue.length > 10 || data['status'] === "NOT_FOUND") {
         results.innerHTML = 'Invalid Ticker'
     } else { //Else set ticker in session storage and redirect user
         results.innerHTML = "";
