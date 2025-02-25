@@ -298,7 +298,7 @@ export function autocomplete(inp, arr, arr1) {
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         /*add class "autocomplete-active":*/
-        x[currentFocus].classList.add("bg-blue-500");
+        x[currentFocus].classList.add("autocomplete-active");
     }
     function removeActive(x) {
         /*a function to remove the "active" class from all autocomplete items:*/

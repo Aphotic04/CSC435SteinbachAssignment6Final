@@ -27,6 +27,9 @@ input[type=submit] {
 .autocomplete-items div:hover {
     @apply bg-gray-300;
 }
+.autocomplete-active {
+    @apply bg-blue-500;
+}
 /*Gainer/loser color styles*/
 .gainers {
     @apply text-green-500;
