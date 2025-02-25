@@ -113,7 +113,7 @@ export async function clickStockSearch() {
     const Api = await loadApi(); //Loads API file
 
     //Gets company description to ensure that this ticker does indeed exist
-    const data = await Api.fetchCompanyDesc(searchValue);
+    const data = await Api.fetchCompanyDesc(searchValue.toUpperCase());
 
 
     //If input is invalid, display message
