@@ -1,3 +1,11 @@
+Video: 
+Please look in the description for timestamps
+https://youtu.be/8oRV1q68PoM
+
+GitHub: https://github.com/Aphotic04/CSC435SteinbachAssignment6Final
+
+Deployment Link: https://csc-435-steinbach-assignment6-final.vercel.app/
+
 Log In Credentials:
     username: testuser
     password: password123
